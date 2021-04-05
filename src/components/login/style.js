@@ -1,7 +1,8 @@
-import loginArticle from './../../static/loginTemplate.png'
+import loginArticle from './../../static/loginTemplate.png';
+import githubLoginAsset from './../../static/githubLogo.png';
 import styled from "styled-components";
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 </style>
 export const LoginTemplate = styled.div`
     display: flex;
@@ -13,7 +14,7 @@ export const LoginTemplate = styled.div`
 `;
 export const BaseCotainer = styled.div`
     height: 100vh;
-    weight: 100vw;
+    width: 100vw;
     overflow: hidden;
 `;
 
@@ -44,13 +45,17 @@ export const LoginArticle = styled.article`
 `;
 
 export const OAuthLoginButton = styled.button`
+    display: flex;
+    align-items: center;
+    
     height: 3rem;
     width: 18rem;
     color: white;
-    background-color: #4d4d4d;
+    background-color: #464646;
     border: 0;
     outline: none;
     font-size: 1.1rem;
+    font-weight: bolder;
 
     cursor: pointer;
 
@@ -79,7 +84,7 @@ export const LoginText = styled.p`
     font-size: 1.5rem;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
-    margin 0;
+    margin: 0;
 `;
 
 export const LoginDescription = styled.div`
@@ -88,4 +93,14 @@ export const LoginDescription = styled.div`
     & ${LoginText}:nth-child(1) {
         font-size: 2.74rem;
     }
+`;
+
+export const GithubLoginAsset = styled.img.attrs({
+    src: githubLoginAsset
+})`
+    height: 100%;
+    width: auto;
+
+    margin-right: 2rem;
+
 `;
