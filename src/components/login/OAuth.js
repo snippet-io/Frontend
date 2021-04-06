@@ -17,7 +17,7 @@ const GetAccessToken = ({ history, location }) => {
 
         // 유저 JWT 토큰을 저장합니다.
         localStorage.setItem('accessToken', access_token);
-        history.push('/'); // 로그인이 완료되면 보여줄 페이지✔
+        history.push('/code'); // 로그인이 완료되면 보여줄 페이지✔
       } catch (error) {
         history.push('/error');
       }
