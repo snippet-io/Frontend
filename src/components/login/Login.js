@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import axios from 'axios'
 import Header from "./../header/Header"
+import * as B from "./../style"
 import * as S from "./style"
 
 
-const Login = () => {
+const LoginPage = () => {
     const redirectOAuthURL = async () => {
         return await axios.get(
             `${process.env.REACT_APP_API_BASE_URL}/auth/github/login?redirect=${process.env.REACT_APP_URL}/github/OAuth`
@@ -12,10 +13,10 @@ const Login = () => {
     }
 
     return (
-        <S.BaseCotainer>
+        <B.BaseCotainer>
             <Header />
 
-            <S.LoginTemplate>
+            <B.BaseTemplate>
                 <S.LoginSection>
                     <S.LoginArticle>
                         <S.LoginImg />
@@ -26,8 +27,9 @@ const Login = () => {
                             </S.LoginDescription>
 
                             <S.OAuthLoginButton onClick={async () => {
-                                const { data } = await redirectOAuthURL();
-                                window.location.href = data;
+                                const res = await redirectOAuthURL();
+                                console.log(res.data.redirect_url);
+                                window.location.href = res.data.redirect_url;
                             }}>
                                 <S.GithubLoginAsset/>
                                 Login with Github
@@ -36,9 +38,9 @@ const Login = () => {
                         </S.LoginContainer>
                     </S.LoginArticle>
                 </S.LoginSection>
-            </S.LoginTemplate>
-        </S.BaseCotainer>
+            </B.BaseTemplate>
+        </B.BaseCotainer>
     );
 };
 
-export default Login;
+export default LoginPage;
