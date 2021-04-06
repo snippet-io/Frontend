@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import logoImg from "./../../static/logo.png";
 
 
 export const HeaderTemplate = styled.div`
@@ -28,9 +29,9 @@ export const LoginButton = styled.a.attrs({
     align-items: center;
 `;
 
-export const Logo = styled.img`
-    width: 7rem;
-    height: 100%;
-
-    border: 1px solid black;
+export const Logo = styled.img.attrs({
+    src: logoImg
+})`
+    width: 5.75rem;
+    margin-left: 1rem;
 `;
