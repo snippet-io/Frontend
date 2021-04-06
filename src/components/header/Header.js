@@ -6,7 +6,9 @@ import * as S from "./style"
 const Header = () => {
     return (
         <S.HeaderTemplate>
-            <S.Logo/>
+            <S.Logo onClick={() => {
+                window.location.href = '/';
+            }}/>
             <S.LoginButton>
                 LOGIN
             </S.LoginButton>
