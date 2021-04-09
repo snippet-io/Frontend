@@ -23,6 +23,7 @@ export const LoginSection = styled.section`
 
     justify-content: center;
     align-items: center;
+    margin: 0;
 `;
 
 export const LoginArticle = styled.article`
@@ -90,4 +91,18 @@ export const GithubLoginAsset = styled.img.attrs({
 
     margin-right: 2rem;
 
+`;
+
+export const LoginCotainer = styled.div`
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+`;
+
+export const LoginTemplate = styled.div`
+    display: flex;
+    height: 100%;
+    width: 100%;
+
+    justify-content: center;
 `;

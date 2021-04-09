@@ -13,33 +13,34 @@ const LoginPage = () => {
     }
 
     return (
-        <B.BaseCotainer>
+        <S.LoginCotainer>
             <Header />
+                <B.BaseBackground>
+                <S.LoginTemplate>
+                    <S.LoginSection>
+                        <S.LoginArticle>
+                            <S.LoginImg />
+                            <S.LoginContainer>
+                                <S.LoginDescription>
+                                    <S.LoginText>Save and Find</S.LoginText>
+                                    <S.LoginText>code, notes, and snippets.</S.LoginText>
+                                </S.LoginDescription>
 
-            <B.BaseTemplate>
-                <S.LoginSection>
-                    <S.LoginArticle>
-                        <S.LoginImg />
-                        <S.LoginContainer>
-                            <S.LoginDescription>
-                                <S.LoginText>Save and Find</S.LoginText>
-                                <S.LoginText>code, notes, and snippets.</S.LoginText>
-                            </S.LoginDescription>
+                                <S.OAuthLoginButton onClick={async () => {
+                                    const res = await redirectOAuthURL();
+                                    console.log(res.data.redirect_url);
+                                    window.location.href = res.data.redirect_url;
+                                }}>
+                                    <S.GithubLoginAsset/>
+                                    Login with Github
+                            </S.OAuthLoginButton>
 
-                            <S.OAuthLoginButton onClick={async () => {
-                                const res = await redirectOAuthURL();
-                                console.log(res.data.redirect_url);
-                                window.location.href = res.data.redirect_url;
-                            }}>
-                                <S.GithubLoginAsset/>
-                                Login with Github
-                        </S.OAuthLoginButton>
-
-                        </S.LoginContainer>
-                    </S.LoginArticle>
-                </S.LoginSection>
-            </B.BaseTemplate>
-        </B.BaseCotainer>
+                            </S.LoginContainer>
+                        </S.LoginArticle>
+                    </S.LoginSection>
+                </S.LoginTemplate>
+                </B.BaseBackground>
+        </S.LoginCotainer>
     );
 };
 
