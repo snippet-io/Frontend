@@ -71,6 +71,7 @@ export const SnippetCodeLineNumber = styled.span`
 
 export const HeadContainer = styled.div`
     display: flex;
+    height: 2rem;
 `;
 
 export const LangDropdownSelect = styled.select`
