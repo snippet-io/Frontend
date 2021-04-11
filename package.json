@@ -7,12 +7,15 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
+    "prismjs": "^1.23.0",
     "qs": "^6.10.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-simple-code-editor": "^0.11.0",
+    "react-syntax-highlighter": "^15.4.3",
     "styled-components": "^5.2.1",
     "web-vitals": "^1.0.1"
   },
@@ -41,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "@types/prismjs": "^1.16.4",
     "cross-env": "^7.0.3"
   }
 }
