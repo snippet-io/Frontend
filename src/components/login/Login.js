@@ -28,7 +28,6 @@ const LoginPage = () => {
 
                                 <S.OAuthLoginButton onClick={async () => {
                                     const res = await redirectOAuthURL();
-                                    console.log(res.data.redirect_url);
                                     window.location.href = res.data.redirect_url;
                                 }}>
                                     <S.GithubLoginAsset/>
