@@ -10,7 +10,7 @@ const App = () => {
     <div>
       <Route path="/login" component={LoginPage} />
       <Route path="/github/OAuth" component={GetAccessToken}/>
-      <Route path="/code" component={SnippetPage}/>    
+      <Route path="/code" component={SnippetPage}/>
     </div>
   );
 };
