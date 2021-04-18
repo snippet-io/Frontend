@@ -35,3 +35,16 @@ export const Logo = styled.img.attrs({
     width: 5.75rem;
     margin-left: 1rem;
 `;
+
+export const HeaderUserSection = styled.div`
+    display: flex;
+    margin-left: auto;
+`;
+
+export const HeaderText = styled.a.attrs({
+    href: process.env.REACT_APP_URL + "/code"
+    })`
+    text-decoration: none;
+    margin-left: auto;
+    color: #ffffff;
+`;
