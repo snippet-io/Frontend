@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import Editor from 'react-simple-code-editor';
-import Header from "./../header/Header"
+import Header from "../header/Header"
 import * as S from "./style"
-import * as B from "./../style"
+import * as B from "../style"
 
 import { highlight, languages } from "prismjs/components/prism-core";
 import "prismjs/components/prism-clike"
@@ -39,64 +39,69 @@ const SnippetPage = () => {
             alert('코드 생성 에러');  // 에러표시
         });
     }
-    
+
     const onChangeInput = (e) => {
         const { value, name } = e.target;
         console.log(value, name)
         setInputs({
-          ...inputs,
-          [name]: value,
+            ...inputs,
+            [name]: value,
         });
-      };
+    };
 
     return (
-        <B.BaseBackground>
-            <Header/>
+        <div>
+            <Header />
             <S.SnippetCotainer>
-                <S.SnippetInputsContainer>
-                    <form>
-                        <S.HeadContainer>
-                            <S.SnippetTitle
+                <B.BaseBackground>
+                <S.SnippetSection>
+                    <S.SnippetInputsContainer>
+                        <form>
+                            <S.HeadContainer>
+                                <S.SnippetTitle
+                                    type="text"
+                                    placeholder="snippet title"
+                                    name="title"
+                                    value={title}
+                                    onChange={onChangeInput}
+                                />
+                                <S.LangDropdownSelect>
+                                    <S.LangDropdownOption value={language}>Python</S.LangDropdownOption>
+                                </S.LangDropdownSelect>
+                            </S.HeadContainer>
+
+                            <S.SnippetCodeSection>
+                                <Editor
+                                    value={code}
+                                    onValueChange={(code) => setInputs({
+                                        ...inputs,
+                                        'code': code,
+                                    })}
+                                    padding={10}
+                                    highlight={code => highlight(code, languages[language])}
+                                    style={{
+                                        height: '20rem',
+                                        fontFamily: 'monospace',
+                                        fontSize: 16,
+                                    }}
+                                />
+                            </S.SnippetCodeSection>
+                            <S.SnippetDescription
                                 type="text"
-                                placeholder="snippet title"
-                                name="title"
-                                value={title}
+                                name="description"
+                                placeholder="snippet description..."
+                                value={description}
                                 onChange={onChangeInput}
                             />
-                            <S.LangDropdownSelect>
-                                <S.LangDropdownOption value={language}>Python</S.LangDropdownOption>
-                            </S.LangDropdownSelect>
-                        </S.HeadContainer>
-                        <S.SnippetCodeSection>
-                            <Editor
-                            value={code}
-                            onValueChange={(code) => setInputs({
-                                ...inputs,
-                                'code': code,
-                            })}
-                            padding={10}
-                            highlight={code => highlight(code, languages[language])}
-                            style={{
-                                height: '24rem',
-                                fontFamily: 'monospace',
-                                fontSize: 16,
-                            }}
-                            />
-                        </S.SnippetCodeSection>
-                        <S.SnippetDescription
-                            type="text"
-                            name="description"
-                            placeholder="Description"
-                            value={description}
-                            onChange={onChangeInput}
-                        />
-                    </form>
-                    <S.SnippetAddButton onClick={onCreateSnippet}>
-                        ADD
+                        </form>
+                        <S.SnippetAddButton onClick={onCreateSnippet}>
+                            ADD
                     </S.SnippetAddButton>
-                </S.SnippetInputsContainer>
+                    </S.SnippetInputsContainer>
+                </S.SnippetSection>
+                </B.BaseBackground>
             </S.SnippetCotainer>
-        </B.BaseBackground>
+        </div>
     );
 };
 
