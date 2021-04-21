@@ -6,7 +6,7 @@ import SearchIcon from '@material-ui/icons/Search';
 export const HeadContainer = styled(Container)({
     display: 'flex',
     alignItems: 'center',
-    width: '70rem',
+    width: '50rem',
     height: '7rem',
     marginTop: '3rem', 
     padding: '3rem',
@@ -21,11 +21,11 @@ export const LargeSearchIcon = styled(SearchIcon)({
     marginLeft: '1rem',
     cursor: 'pointer',
 });
-
+    
 export const MainContainer = styled(Container)({
     display: 'flex',
     border: '0.1rem solid black',
-    width: '70rem',
+    width: '50rem',
     height: '100rem',
     marginTop: '2rem',
 });
