@@ -1,8 +1,8 @@
 import React from 'react'
 import axios from 'axios'
-import Header from "./../header/Header"
-import * as B from "./../style"
-import * as S from "./style"
+import Header from "../../header/page/header"
+import * as B from "../../style"
+import * as S from "../style"
 
 
 const LoginPage = () => {

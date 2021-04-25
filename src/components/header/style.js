@@ -12,21 +12,10 @@ export const HeaderTemplate = styled.div`
     align-items: center;
 `;
 
-export const LoginButton = styled.a.attrs({
-    href: process.env.REACT_APP_URL + "/login"
-    })`
-    display: flex;
-    height: 100%;
-    width: 5rem;
-    color: #ffffff;
-    text-decoration: none;
-
-    margin-left: auto;
-    margin-right: 0.3rem;
+export const HeaderButton = styled.a`
+    margin-left: 1rem;
+    margin-right: 1rem;
     cursor: pointer;
-
-    justify-content: center;
-    align-items: center;
 `;
 
 export const Logo = styled.img.attrs({
@@ -41,9 +30,7 @@ export const HeaderUserSection = styled.div`
     margin-left: auto;
 `;
 
-export const HeaderText = styled.a.attrs({
-    href: process.env.REACT_APP_URL + "/code"
-    })`
+export const HeaderText = styled.a`
     text-decoration: none;
     margin-left: auto;
     color: #ffffff;

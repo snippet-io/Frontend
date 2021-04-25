@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import Header from "./../header/Header"
+import Header from "../header/header"
 import * as S from "./style";
 import axios from 'axios';
 
