@@ -11,7 +11,7 @@ const Login = ({ gotoURL }) => {
     getRedirectOAuthURL().then((res) => {
       setRedirectUrl(res.data.redirect_url);
     });
-  });
+  }, []);
 
   return (
     <S.LoginCotainer>
