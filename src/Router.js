@@ -1,18 +1,17 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
-import LoginPage from './components/login/page/login';
-// import GetAccessToken from './components/login/oauth';
-// import SnippetPage from './components/snippet/snippet'
-// import SnippetsPage from './components/snippets/snippets';
-
+import React from "react";
+import { Route } from "react-router-dom";
+import HeaderContainer from "app/header/container/headerContainer";
+import LoginContainer from "app/login/container/loginContaienr";
+import OAuthContainer from "app/login/container/oauthContainer";
+import SnippetListContainer from "app/snippetList/container/snippetListContainer";
 
 const App = () => {
   return (
     <div>
-      {/* <Route exact path="/" component={SnippetsPage} /> */}
-      <Route path="/login" component={LoginPage} />
-      {/* <Route path="/github/OAuth" component={GetAccessToken}/>
-      <Route path="/code" component={SnippetPage}/> */}
+      <Route path="/header" component={HeaderContainer} />
+      <Route path="/login" component={LoginContainer} />
+      <Route path="/github/OAuth" component={OAuthContainer} />
+      <Route exact path="/" component={SnippetListContainer} />
     </div>
   );
 };
