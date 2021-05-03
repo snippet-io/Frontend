@@ -1,11 +1,11 @@
 import Language from "./language";
 import SnippetMetaData from "./snippetMetaData";
-import Title from "./title";
+import * as S from "./style";
 
 const SnippetHeader = () => {
     return (
         <div>
-            <Title />
+            <S.Title>Title</S.Title>
             <Language />
             <SnippetMetaData />
         </div>
