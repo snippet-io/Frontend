@@ -5,9 +5,9 @@ import * as S from "./style";
 const SnippetHeader = ({snippet}) => {
     return (
         <div>
-            <S.Title>{code.title}</S.Title>
-            <S.Language>{code.language}</S.Language>
-            <SnippetMetaData author={code.author} createdTime={code.createdDateTime}/>
+            <S.Title>{snippet.title}</S.Title>
+            <S.Language>{snippet.language}</S.Language>
+            <SnippetMetaData author={snippet.author} createdTime={snippet.createdDateTime}/>
         </div>
     );
 };
