@@ -1,13 +1,14 @@
 import Author from "./author";
 import CreatedTime from "./createdTime";
+import * as S from "./style";
 
-const SnippetMetaData = () => {
+const SnippetMetaData = ({author, createdTime}) => {
     return (
-        <div>
-            <Author />
+        <S.SnippetMetaData>
+            <Author author={author} />
             -
-            <CreatedTime />
-        </div>
+            <CreatedTime createdTime={createdTime}/>
+        </S.SnippetMetaData>
     );
 };
 

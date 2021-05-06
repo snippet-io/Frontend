@@ -1,10 +1,10 @@
-
+import * as S from "./style";
 
 const Language = () => {
     return (
-        <div>
+        <S.Language>
             JS
-        </div>
+        </S.Language>
     );
 };
 

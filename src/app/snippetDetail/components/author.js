@@ -1,7 +1,7 @@
+import * as S from "./style";
 
-
-const Author = () => {
-    return <div>손정우</div>
+const Author = ({author}) => {
+    return <S.Author>{author}</S.Author>;
 };
 
 export default Author;

@@ -3,10 +3,18 @@ import SnippetHeader from "./snippetHeader";
 
 
 const SnippetDetail = () => {
+
+    const code = {
+        title: "Title",
+        language: "JS",
+        author: "손정우",
+        createdDateTime: new Date()
+    };
+
     return (
     <>
         <Header />
-        <SnippetHeader />
+        <SnippetHeader code={code} />
     </>);
 };
 
