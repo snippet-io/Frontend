@@ -2,7 +2,7 @@ import Language from "./language";
 import SnippetMetaData from "./snippetMetaData";
 import * as S from "./style";
 
-const SnippetHeader = ({title, language, author, createdTime, code}) => {
+const SnippetHeader = ({snippet}) => {
     return (
         <div>
             <S.Title>{code.title}</S.Title>

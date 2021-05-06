@@ -1,10 +1,11 @@
+import SnippetDescription from "./snippetDescription";
 import Header from "app/header/components/header";
 import SnippetHeader from "./snippetHeader";
 
 
 const SnippetDetail = () => {
 
-    const code = {
+    const snippet = {
         title: "Title",
         language: "JS",
         author: "손정우",
@@ -14,7 +15,7 @@ const SnippetDetail = () => {
     return (
     <>
         <Header />
-        <SnippetHeader code={code} />
+        <SnippetHeader snippet={snippet} />
     </>);
 };
 
