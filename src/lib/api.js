@@ -42,3 +42,7 @@ export const postCreateSnippetAPI = ({
       alert("코드 생성 에러");
     });
 };
+
+export const getUserAPI = (id) => {
+  return api.get(`/users/${id}`);
+};
