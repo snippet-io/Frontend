@@ -14,19 +14,21 @@ const SnippetDetail = ({
   return (
     <>
       <Header />
-      <S.SnippetDetailWrapper>
-        <SnippetHeader snippet={snippet} />
-        <SnippetDescription description={snippet.description} />
-        <SnippetCode code={snippet.code} language={snippet.language} />
-        <S.LinksWrapper>
-          {isUserAuthor && (
-            <SnippetDetailLink to={urlGoingEdit}>Edit</SnippetDetailLink>
-          )}
-          <SnippetDetailLink to={urlGoingToBackTheList}>
-            Back to the list
-          </SnippetDetailLink>
-        </S.LinksWrapper>
-      </S.SnippetDetailWrapper>
+      {snippet && (
+        <S.SnippetDetailWrapper>
+          <SnippetHeader snippet={snippet} />
+          <SnippetDescription description={snippet.description} />
+          <SnippetCode code={snippet.code} language={snippet.language} />
+          <S.LinksWrapper>
+            {isUserAuthor && (
+              <SnippetDetailLink to={urlGoingEdit}>Edit</SnippetDetailLink>
+            )}
+            <SnippetDetailLink to={urlGoingToBackTheList}>
+              Back to the list
+            </SnippetDetailLink>
+          </S.LinksWrapper>
+        </S.SnippetDetailWrapper>
+      )}
     </>
   );
 };
