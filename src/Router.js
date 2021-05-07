@@ -15,7 +15,7 @@ const App = () => {
       <Route path="/login" component={LoginContainer} />
       <Route path="/github/OAuth" component={OAuthContainer} />
       <Route exact path="/" component={SnippetListContainer} />
-      <Route path="/detail/:id" component={SnippetDetailContainer} />
+      <Route path="/codes/:snippetId" component={SnippetDetailContainer} />
     </div>
   );
 };
