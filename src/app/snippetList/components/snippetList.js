@@ -1,19 +1,9 @@
-import React, { useEffect, useState } from "react";
 import Header from "app/header/container/headerContainer";
 import * as S from "./style";
-import { getSnippetList } from "lib/api";
 import List from "@material-ui/core/List";
+import React from "react";
 
 const SnippetList = () => {
-  const [snippets, setSnippets] = useState([]);
-
-  useEffect(() => {
-    getSnippetList(0, 10).then((res) => {
-      console.log(res.data);
-      setSnippets(res.data);
-    });
-  }, []);
-
   return (
     <div>
       <Header />
