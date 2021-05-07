@@ -18,6 +18,10 @@ export const getCodesAPI = (limit, offset) => {
   return api.get(`/codes?limit=${limit}&offset=${offset}`);
 };
 
+export const getCodeAPI = (id) => {
+  return api.get(`/codes/${id}`);
+};
+
 export const postCreateSnippetAPI = ({
   title,
   language,
