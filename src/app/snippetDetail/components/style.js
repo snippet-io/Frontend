@@ -57,3 +57,23 @@ export const SnippetCode = styled.div`
 
     margin-top: 21px;
 `;
+
+export const LinksWrapper = styled.div`
+    display: flex;
+    margin-left: auto;
+    justify-content: flex-end;
+
+    margin-top: 21px;
+`;
+
+export const SnippetDetailLink = styled.div`
+    padding: 0;
+    cursor: pointer;
+    justify-items: right;
+
+    margin-left: 27px;
+
+    font-size: 1.563rem;
+    color: #707070;
+    text-decoration: underline;
+`;

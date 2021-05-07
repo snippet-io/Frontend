@@ -4,10 +4,12 @@ import SnippetHeader from "./snippetHeader";
 import * as S from "./style";
 import SnippetCode from "./snippetCode";
 import languages from "lib/languages";
+import { Link } from "react-router-dom";
+import SnippetDetailLink from "./SnippetDetailLink";
 
-const SnippetDetail = () => {
+const SnippetDetail = ({snippet, isUserAuthor, urlGoingEdit, urlGoingToBackTheList}) => {
 
-    const snippet = {
+    snippet = {
         title: "Title",
         language: languages["javascript"],
         author: "손정우",
@@ -19,7 +21,7 @@ const SnippetDetail = () => {
             return a + b;
         }`
     };
-
+    isUserAuthor = true;
     return (
     <>
         <Header />
@@ -27,6 +29,10 @@ const SnippetDetail = () => {
             <SnippetHeader snippet={snippet} />
             <SnippetDescription description={snippet.description}/>
             <SnippetCode code={snippet.code} language={snippet.language}/>
+            <S.LinksWrapper>
+                {isUserAuthor && <SnippetDetailLink to={urlGoingEdit}>Edit</SnippetDetailLink>}
+                <SnippetDetailLink to={urlGoingToBackTheList}>Back to the list</SnippetDetailLink>
+            </S.LinksWrapper>
         </S.SnippetDetailWrapper>
     </>);
 };
