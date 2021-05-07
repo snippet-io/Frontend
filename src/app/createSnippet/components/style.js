@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SnippetSection = styled.section`
+export const SnippetSection = styled.div`
   display: flex;
   justify-content: center;
 
@@ -49,7 +49,7 @@ export const SnippetDescription = styled.input`
   }
 `;
 
-export const SnippetCodeSection = styled.section`
+export const SnippetCodeSection = styled.div`
   width: 100%;
   border: 1px solid black;
   background-color: #ffffff;
@@ -57,9 +57,7 @@ export const SnippetCodeSection = styled.section`
 `;
 
 export const SnippetCotainer = styled.div`
-  display: flex;
-
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   overflow: hidden;
 `;
