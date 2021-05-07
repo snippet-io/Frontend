@@ -4,23 +4,28 @@ const api = axios.create({
   baseURL: `${process.env.REACT_APP_API_BASE_URL}`,
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    Authorization: localStorage.getItem("accessToken"),
   },
 });
 
-export const getRedirectOAuthURL = () => {
+export const getOAuthUrlAPI = () => {
   return api.get(
     `/auth/github/login?redirect=${process.env.REACT_APP_URL}/github/OAuth`
   );
 };
 
-export const getSnippetList = (limit, offset) => {
+export const getCodesAPI = (limit, offset) => {
   return api.get(`/codes?limit=${limit}&offset=${offset}`);
 };
 
-export const onCreateSnippet = ({ title, language, code, description }) => {
+export const postCreateSnippetAPI = ({
+  title,
+  language,
+  code,
+  description,
+}) => {
   return api
-    .post(`/code`, {
+    .post(`/codes`, {
       title: title,
       language: language,
       content: code,
@@ -29,7 +34,7 @@ export const onCreateSnippet = ({ title, language, code, description }) => {
     .then((res) => {
       console.log(res);
     })
-    .catch((e) => {
+    .catch(() => {
       alert("코드 생성 에러");
     });
 };
