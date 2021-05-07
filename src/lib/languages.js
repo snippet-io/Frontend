@@ -18,6 +18,7 @@ class Language {
   }
 }
 
-export default {
+const languageList = {
   javascript: new Language("javascript", "JS"),
 };
+export default languageList;
