@@ -1,7 +1,7 @@
 import SnippetDescription from "./snippetDescription";
 import Header from "app/header/components/header";
 import SnippetHeader from "./snippetHeader";
-
+import * as S from "./style";
 
 const SnippetDetail = () => {
 
@@ -18,8 +18,10 @@ const SnippetDetail = () => {
     return (
     <>
         <Header />
-        <SnippetHeader snippet={snippet} />
-        <SnippetDescription description={snippet.description}/>
+        <S.SnippetDetailWrapper>
+            <SnippetHeader snippet={snippet} />
+            <SnippetDescription description={snippet.description}/>
+        </S.SnippetDetailWrapper>
     </>);
 };
 

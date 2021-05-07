@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const SnippetDetailWrapper = styled.div`
+    margin: 62px auto 0 auto;
+    padding: 0;
+    width: 1086px;
+`;
+
 export const SnippetHeader = styled.div`
     margin: 0;
     padding: 0;
