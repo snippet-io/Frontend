@@ -49,3 +49,11 @@ export const SnippetDescription = styled.div`
     margin-top: 30px;
     font-family: Lato;
 `;
+
+export const SnippetCode = styled.div`
+    background-color: #F1F1F1;
+    border-radius: 5px;
+    padding: 10px;
+
+    margin-top: 21px;
+`;
