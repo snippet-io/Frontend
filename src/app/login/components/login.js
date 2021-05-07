@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import Header from "app/header/components/header";
 import * as S from "./style";
 
-import { getRedirectOAuthURL } from "lib/api";
+import { getOAuthUrlAPI } from "lib/api";
 
 const Login = ({ gotoURL }) => {
   const [redirectUrl, setRedirectUrl] = useState("");
 
   useEffect(() => {
-    getRedirectOAuthURL().then((res) => {
+    getOAuthUrlAPI().then((res) => {
       setRedirectUrl(res.data.redirect_url);
     });
   }, []);
