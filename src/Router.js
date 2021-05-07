@@ -5,6 +5,7 @@ import LoginContainer from "app/login/container/loginContaienr";
 import OAuthContainer from "app/login/container/oauthContainer";
 import SnippetListContainer from "app/snippetList/container/snippetListContainer";
 import CreateSnippet from "app/createSnippet/components/createSnippet";
+import SnippetDetailContainer from "app/snippetDetail/container/snippetDetailContainer";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Route path="/login" component={LoginContainer} />
       <Route path="/github/OAuth" component={OAuthContainer} />
       <Route exact path="/" component={SnippetListContainer} />
+      <Route path="/detail/:id" component={SnippetDetailContainer} />
     </div>
   );
 };
