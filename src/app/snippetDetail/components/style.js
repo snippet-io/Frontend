@@ -38,3 +38,8 @@ export const CreatedTime = styled.div`
     display: inline-block;
     margin-left: 7px;
 `;
+
+export const SnippetDescription = styled.div`
+    margin-top: 30px;
+    font-family: Lato;
+`;
