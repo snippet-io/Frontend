@@ -3,7 +3,7 @@ import SnippetItem from "../components/snippetItem";
 const SnippetItemContainer = (props) => {
   return (
     <div>
-      <SnippetItem p={props}></SnippetItem>
+      <SnippetItem props={props}></SnippetItem>
     </div>
   );
 };
