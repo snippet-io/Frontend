@@ -1,5 +1,7 @@
 import SnippetItemContainer from "./snippetItemContainer";
 import SnippetList from "../components/snippetList";
+import { getCodesAPI } from "lib/api";
+import { useEffect, useState } from "react";
 
 function calculateTimestamp(timestamp) {
   // YYYY-MM-DDTHH:MM:SS.sss+09:00
@@ -27,32 +29,15 @@ function calculateTimestamp(timestamp) {
   }
 }
 
-// async function getSnippetItems() {
-//   const snippets = await getCodes(10, 0);
-//   let snippetItems = [];
-
-//   if (snippets !== []) {
-//     snippetItems = snippets.map((snippet) => {
-//       return (
-//         <SnippetItemContainer
-//           key={snippet.id}
-//           title={snippet.title}
-//           description={snippet.description}
-//           author={snippet.author}
-//           datetime={snippet.created_datetime}
-//           calculateTimestamp={calculateTimestamp}
-//         />
-//       );
-//     });
-//   }
-//   return snippetItems;
-// }
-
 const SnippetListContainer = () => {
-  // const snippetItems = await getSnippetItems();
-  // const snippetItems = [];
+  const [snippets, setSnippets] = useState([]);
+  useEffect(() => {
+    getCodesAPI(0, 10).then((res) => {
+      setSnippets(res.data);
+    });
+  }, []);
 
-  return <SnippetList></SnippetList>;
+  return <SnippetList snippets={snippets}></SnippetList>;
 };
 
 export default SnippetListContainer;
