@@ -1,4 +1,3 @@
-import Language from "./language";
 import SnippetMetaData from "./snippetMetaData";
 import * as S from "./style";
 

@@ -20,5 +20,6 @@ class Language {
 
 const languageList = {
   javascript: new Language("javascript", "JS"),
+  py: new Language("python", "py"),
 };
 export default languageList;

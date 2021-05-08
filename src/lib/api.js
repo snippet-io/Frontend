@@ -18,6 +18,10 @@ export const getCodesAPI = (limit, offset) => {
   return api.get(`/codes?limit=${limit}&offset=${offset}`);
 };
 
+export const getCodeAPI = (id) => {
+  return api.get(`/codes/${id}`);
+};
+
 export const postCreateSnippetAPI = ({
   title,
   language,
@@ -37,4 +41,8 @@ export const postCreateSnippetAPI = ({
     .catch(() => {
       alert("코드 생성 에러");
     });
+};
+
+export const getUserAPI = (id) => {
+  return api.get(`/users/${id}`);
 };
