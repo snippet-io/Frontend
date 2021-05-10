@@ -1,7 +1,8 @@
 import { useState } from "react";
 import CreateSnippet from "../components/createSnippet";
+import { postCreateSnippetAPI } from "lib/api";
 
-const CreateSnippetContainer = () => {
+const CreateSnippetContainer = ({ history }) => {
   const [inputs, setInputs] = useState({
     title: "",
     language: "py",
@@ -17,11 +18,23 @@ const CreateSnippetContainer = () => {
     });
   };
 
+  const postingSnippet = (data) => {
+    postCreateSnippetAPI(data)
+      .then((res) => {
+        console.log(res);
+        history.push("/");
+      })
+      .catch(() => {
+        alert("코드 생성 에러");
+      });
+  };
+
   return (
     <CreateSnippet
       inputs={inputs}
       setInputs={setInputs}
       onChangeInput={onChangeInput}
+      postingSnippet={postingSnippet}
     ></CreateSnippet>
   );
 };
