@@ -28,19 +28,12 @@ export const postCreateSnippetAPI = ({
   code,
   description,
 }) => {
-  return api
-    .post(`/codes`, {
-      title: title,
-      language: language,
-      content: code,
-      description: description,
-    })
-    .then((res) => {
-      console.log(res);
-    })
-    .catch(() => {
-      alert("코드 생성 에러");
-    });
+  return api.post(`/codes`, {
+    title: title,
+    language: language,
+    content: code,
+    description: description,
+  });
 };
 
 export const getUserAPI = (id) => {

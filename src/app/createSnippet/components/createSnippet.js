@@ -1,11 +1,19 @@
-import React, { useEffect } from "react";
-import Editor from "react-simple-code-editor";
+import React from "react";
 import Header from "app/header/container/headerContainer";
 import * as S from "./style";
-import { postCreateSnippetAPI } from "lib/api";
-import { highlight, languages } from "prismjs/components/prism-core";
 
-const CreateSnippet = ({ inputs, onChangeInput, setInputs }) => {
+import SnippetTitle from "./snippetTitle";
+import LangDropDown from "./langDropdown";
+import CodeEditor from "./editor";
+import Description from "./description";
+import SnippetAddButton from "./addButton";
+
+const CreateSnippet = ({
+  inputs,
+  onChangeInput,
+  setInputs,
+  postingSnippet,
+}) => {
   const { title, language, description, code } = inputs;
 
   return (
@@ -13,56 +21,29 @@ const CreateSnippet = ({ inputs, onChangeInput, setInputs }) => {
       <Header />
       <S.SnippetCotainer>
         <S.SnippetSection>
-          <S.SnippetInputsContainer>
-            <form>
-              <S.HeadContainer>
-                <S.SnippetTitle
-                  type="text"
-                  placeholder="snippet title"
-                  name="title"
-                  value={title}
-                  onChange={onChangeInput}
-                />
-                <S.LangDropdownSelect>
-                  <S.LangDropdownOption value={language}>
-                    Python
-                  </S.LangDropdownOption>
-                </S.LangDropdownSelect>
-              </S.HeadContainer>
+          <S.HeadContainer>
+            <SnippetTitle title={title} onChangeInput={onChangeInput} />
+            <LangDropDown language={language} />
+          </S.HeadContainer>
 
-              <S.SnippetCodeSection>
-                <Editor
-                  value={code}
-                  onValueChange={(code) =>
-                    setInputs({
-                      ...inputs,
-                      code: code,
-                    })
-                  }
-                  padding={10}
-                  highlight={(code) => highlight(code, languages[language])}
-                  style={{
-                    height: "20rem",
-                    fontFamily: "monospace",
-                    fontSize: 16,
-                  }}
-                />
-              </S.SnippetCodeSection>
-              <S.SnippetDescription
-                type="text"
-                name="description"
-                placeholder="snippet description..."
-                value={description}
-                onChange={onChangeInput}
-              />
-            </form>
-            <S.SnippetAddButton
-              onClick={() => {
-                postCreateSnippetAPI(inputs);
-              }}
-            >
-              ADD
-            </S.SnippetAddButton>
+          <S.SnippetCodeSection>
+            <CodeEditor
+              code={code}
+              setInputs={setInputs}
+              inputs={inputs}
+              language={language}
+            />
+          </S.SnippetCodeSection>
+          <Description
+            description={description}
+            onChangeInput={onChangeInput}
+          />
+          <S.SnippetInputsContainer>
+            <SnippetAddButton
+              type="submit"
+              postingSnippet={postingSnippet}
+              inputs={inputs}
+            />
           </S.SnippetInputsContainer>
         </S.SnippetSection>
       </S.SnippetCotainer>
