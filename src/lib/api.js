@@ -39,3 +39,12 @@ export const postCreateSnippetAPI = ({
 export const getUserAPI = (id) => {
   return api.get(`/users/${id}`);
 };
+
+export const modifySnippetAPI = (codeId, snippet) => {
+  return api.put(`/codes/${codeId}`, {
+    title: snippet.title,
+    language: snippet.language,
+    content: snippet.code,
+    description: snippet.description,
+  });
+};
