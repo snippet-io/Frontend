@@ -10,7 +10,7 @@ import NotFoundContainer from "app/error/notFound/container/notFoundContainer";
 
 const App = () => {
   return (
-    <div>
+    <>
       <Route path="/new" component={CreateSnippetContainer} />
       <Route path="/header" component={HeaderContainer} />
       <Route path="/login" component={LoginContainer} />
@@ -18,7 +18,7 @@ const App = () => {
       <Route exact path="/" component={SnippetListContainer} />
       <Route path="/codes/:snippetId" component={SnippetDetailContainer} />
       <Route path="/404" component={NotFoundContainer} />
-    </div>
+    </>
   );
 };
 
