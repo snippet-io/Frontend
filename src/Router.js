@@ -10,7 +10,7 @@ import EditSnippetContainer from "app/snippet/containter/editSnippetContainer";
 
 const App = () => {
   return (
-    <div>
+    <>
       <Route path="/new" component={CreateSnippetContainer} />
       <Route path="/header" component={HeaderContainer} />
       <Route path="/login" component={LoginContainer} />
@@ -26,7 +26,7 @@ const App = () => {
         path="/codes/:snippetId/edit"
         component={EditSnippetContainer}
       />
-    </div>
+    </>
   );
 };
 
