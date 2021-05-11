@@ -1,11 +1,11 @@
 import React from "react";
 import Header from "app/header/container/headerContainer";
-import * as S from "./style";
+import * as S from "../style";
 
-import SnippetTitle from "./snippetTitle";
-import LangDropDown from "./langDropdown";
-import CodeEditor from "./editor";
-import Description from "./description";
+import SnippetTitle from "../snippetTitle";
+import LangDropDown from "../langDropdown";
+import CodeEditor from "../editor";
+import Description from "../description";
 import SnippetAddButton from "./addButton";
 
 const CreateSnippet = ({
