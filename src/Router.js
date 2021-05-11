@@ -9,14 +9,14 @@ import SnippetDetailContainer from "app/snippetDetail/container/snippetDetailCon
 
 const App = () => {
   return (
-    <div>
+    <>
       <Route path="/new" component={CreateSnippetContainer} />
       <Route path="/header" component={HeaderContainer} />
       <Route path="/login" component={LoginContainer} />
       <Route path="/github/OAuth" component={OAuthContainer} />
       <Route exact path="/" component={SnippetListContainer} />
       <Route path="/codes/:snippetId" component={SnippetDetailContainer} />
-    </div>
+    </>
   );
 };
 
