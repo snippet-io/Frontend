@@ -5,7 +5,7 @@ import SnippetTitle from "../snippetTitle";
 import Description from "../description";
 import LangDropDown from "../langDropdown";
 
-const EditSnippet = ({ snippetState, onChangeInput }) => {
+const EditSnippet = ({ snippetState, onChangeInput, modifySnippet }) => {
   return (
     <>
       <HeaderContainer />
@@ -31,7 +31,9 @@ const EditSnippet = ({ snippetState, onChangeInput }) => {
             onChangeInput={onChangeInput}
           />
           <GlobalS.SnippetInputsContainer>
-            <GlobalS.SnippetButton>EDIT</GlobalS.SnippetButton>
+            <GlobalS.SnippetButton onClick={modifySnippet}>
+              EDIT
+            </GlobalS.SnippetButton>
           </GlobalS.SnippetInputsContainer>
         </GlobalS.SnippetSection>
       </GlobalS.SnippetCotainer>
