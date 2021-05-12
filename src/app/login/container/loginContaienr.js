@@ -1,11 +1,22 @@
-import Login from "../components/login";
+import { useState, useEffect } from "react";
 
-const gotoURL = (url) => {
-  window.location.href = url;
-};
+import Login from "../components/login";
+import { getOAuthUrlAPI } from "lib/api";
 
 const LoginContainer = () => {
-  return <Login gotoURL={gotoURL} />;
+  const [redirectUrl, setRedirectUrl] = useState("");
+
+  useEffect(() => {
+    getOAuthUrlAPI().then((res) => {
+      setRedirectUrl(res.data.redirect_url);
+    });
+  }, []);
+
+  const githubOAuthLogin = () => {
+    window.location.href = redirectUrl;
+  };
+
+  return <Login githubOAuthLogin={githubOAuthLogin} />;
 };
 
 export default LoginContainer;
