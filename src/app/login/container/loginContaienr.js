@@ -1,10 +1,10 @@
 import Login from "../components/login";
 
-const gotoURL = (url) => {
-  window.location.href = url;
-};
-
 const LoginContainer = () => {
+  const gotoURL = (url) => {
+    window.location.href = url;
+  };
+
   return <Login gotoURL={gotoURL} />;
 };
 
