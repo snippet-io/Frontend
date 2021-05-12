@@ -20,7 +20,7 @@ const OAuthContainer = ({ history, location }) => {
         localStorage.setItem("accessToken", res.data.access_token);
         localStorage.setItem("id", res.data.id);
 
-        history.push("/code");
+        history.push("/new");
       } catch (error) {
         console.log(code);
         // history.push("/error");
