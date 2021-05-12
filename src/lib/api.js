@@ -8,18 +8,11 @@ const api = axios.create({
   },
 });
 
-export const getOAuthUrlAPI = () => {
-  return api.get(
-    `/auth/github/login?redirect=${process.env.REACT_APP_URL}/github/OAuth`
-  );
-};
-
-export const getCodesAPI = (limit, offset) => {
-  return api.get(`/codes?limit=${limit}&offset=${offset}`);
-};
-
-export const getCodeAPI = (id) => {
-  return api.get(`/codes/${id}`);
+export const postLoginAPI = (code) => {
+  console.log(code);
+  return api.post(`/auth/github/accesstoken`, {
+    code: code,
+  });
 };
 
 export const postCreateSnippetAPI = ({
@@ -34,6 +27,20 @@ export const postCreateSnippetAPI = ({
     content: code,
     description: description,
   });
+};
+
+export const getOAuthUrlAPI = () => {
+  return api.get(
+    `/auth/github/login?redirect=${process.env.REACT_APP_URL}/github/OAuth`
+  );
+};
+
+export const getCodesAPI = (limit, offset) => {
+  return api.get(`/codes?limit=${limit}&offset=${offset}`);
+};
+
+export const getCodeAPI = (id) => {
+  return api.get(`/codes/${id}`);
 };
 
 export const getUserAPI = (id) => {
