@@ -30,7 +30,7 @@ const SnippetDetailContainer = () => {
       snippet={snippet}
       isUserAuthor={isUserAuthor}
       urlGoingToBackTheList="/"
-      urlGoingEdit="/edit"
+      urlGoingEdit={`/codes/${snippetId}/edit`}
     ></SnippetDetail>
   );
 };
