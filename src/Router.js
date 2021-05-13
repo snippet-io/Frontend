@@ -14,14 +14,14 @@ import SnippetItem from "app/snippetList/components/snippetItem/snippetItem";
 const App = () => {
   return (
     <>
-      <Route path="/test-item" component={SnippetItem} />
+      <Route exact path="/test-item" component={SnippetItem} />
 
-      <Route path="/new" component={CreateSnippetContainer} />
-      <Route path="/header" component={HeaderContainer} />
-      <Route path="/login" component={LoginContainer} />
-      <Route path="/github/OAuth" component={OAuthContainer} />
+      <Route exact path="/new" component={CreateSnippetContainer} />
+      <Route exact path="/header" component={HeaderContainer} />
+      <Route exact path="/login" component={LoginContainer} />
+      <Route exact path="/github/OAuth" component={OAuthContainer} />
       <Route exact path="/" component={SnippetListContainer} />
-      <Route path="/404" component={NotFoundContainer} />
+      <Route path="" component={NotFoundContainer} />
       <Route
         exact
         path="/codes/:snippetId"
