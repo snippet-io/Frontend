@@ -12,7 +12,7 @@ const SnippetListContainer = () => {
         console.log(res);
         setSnippets(res.data);
       } catch (err) {
-        // alert("코드 목록을 불러올 수 없어요");
+        console.log(err);
       }
     })();
   }, []);
