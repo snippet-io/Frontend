@@ -7,7 +7,6 @@ const SnippetListContainer = () => {
   const [snippets, setSnippets] = useState([]);
   useEffect(() => {
     getCodesAPI(0, 10).then((res) => {
-      console.log(res);
       setSnippets(res.data);
     });
   }, []);
