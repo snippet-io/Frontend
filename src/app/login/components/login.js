@@ -1,18 +1,7 @@
-import React, { useEffect, useState } from "react";
 import Header from "app/header/components/header";
 import * as S from "./style";
 
-import { getOAuthUrlAPI } from "lib/api";
-
-const Login = ({ gotoURL }) => {
-  const [redirectUrl, setRedirectUrl] = useState("");
-
-  useEffect(() => {
-    getOAuthUrlAPI().then((res) => {
-      setRedirectUrl(res.data.redirect_url);
-    });
-  }, []);
-
+const Login = ({ githubOAuthLogin }) => {
   return (
     <S.LoginCotainer>
       <Header />
@@ -25,11 +14,7 @@ const Login = ({ gotoURL }) => {
               <S.LoginText>code, notes, and snippets.</S.LoginText>
             </S.LoginDescription>
 
-            <S.OAuthLoginButton
-              onClick={() => {
-                gotoURL(redirectUrl);
-              }}
-            >
+            <S.OAuthLoginButton onClick={githubOAuthLogin}>
               <S.GithubLoginAsset />
               Login with Github
             </S.OAuthLoginButton>

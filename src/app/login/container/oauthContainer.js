@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import axios from "axios";
+import { postLoginAPI } from "lib/api";
 import qs from "qs";
 
 const OAuthContainer = ({ history, location }) => {
@@ -10,17 +10,12 @@ const OAuthContainer = ({ history, location }) => {
       });
 
       try {
-        const res = await axios.post(
-          `${process.env.REACT_APP_API_BASE_URL}/auth/github/accesstoken`,
-          {
-            code,
-          }
-        );
+        const res = await postLoginAPI(code);
 
         localStorage.setItem("accessToken", res.data.access_token);
         localStorage.setItem("id", res.data.id);
 
-        history.push("/code");
+        history.push("/new");
       } catch (error) {
         console.log(code);
         // history.push("/error");

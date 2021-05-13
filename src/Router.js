@@ -9,15 +9,19 @@ import SnippetDetailContainer from "app/snippetDetail/container/snippetDetailCon
 import NotFoundContainer from "app/error/notFound/container/notFoundContainer";
 import EditSnippetContainer from "app/snippet/containter/editSnippetContainer";
 
+import SnippetItem from "app/snippetList/components/snippetItem/snippetItem";
+
 const App = () => {
   return (
     <>
+      <Route exact path="/test-item" component={SnippetItem} />
+
       <Route exact path="/new" component={CreateSnippetContainer} />
       <Route exact path="/header" component={HeaderContainer} />
       <Route exact path="/login" component={LoginContainer} />
       <Route exact path="/github/OAuth" component={OAuthContainer} />
       <Route exact path="/" component={SnippetListContainer} />
-      <Route exact path="" component={NotFoundContainer} />
+      <Route path="" component={NotFoundContainer} />
       <Route
         exact
         path="/codes/:snippetId"
