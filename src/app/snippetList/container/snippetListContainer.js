@@ -1,5 +1,5 @@
 import SnippetItemContainer from "./snippetItemContainer";
-import SnippetList from "../components/snippetList";
+import SnippetList from "../components/snippetList/snippetList";
 import { getCodesAPI } from "lib/api";
 import { useEffect, useState } from "react";
 
