@@ -10,21 +10,18 @@ export const ContentContainer = styled.div`
 
 export const ContentWarpper = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   width: 50rem;
 
   margin: 3rem 0 3rem 0;
   padding: 2rem;
-  border: 0.1rem solid black;
+  /* border: 1px solid black; */
 `;
 
 export const MainContainer = styled.div`
-  display: "flex";
-  border: "0.1rem solid black";
-  width: "50rem";
-  height: "100rem";
-  margin-top: "2rem";
-`;
+  display: flex;
+  flex-direction: column;
 
-export const SearchBar = styled.div``;
-export const SearchIcon = styled.img``;
+  width: 100%;
+`;
