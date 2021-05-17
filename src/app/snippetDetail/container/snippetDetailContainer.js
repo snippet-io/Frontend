@@ -6,6 +6,10 @@ import { getCodeAPI, getUserAPI } from "lib/api";
 
 const SnippetDetailContainer = () => {
   const { snippetId } = useParams();
+  const [userId, setUserId] = useState();
+  useEffect(() => {
+    setUserId(parseInt(localStorage.getItem("id")));
+  }, [userId]);
 
   const [snippet, setSnippet] = useState();
   useEffect(() => {
@@ -17,14 +21,15 @@ const SnippetDetailContainer = () => {
         title: snippetData.data.title,
         code: snippetData.data.content,
         author: authorData.data.name,
+        authorId: snippetData.data.author,
         language: languages[snippetData.data.language],
-        desciption: snippetData.data.description,
+        description: snippetData.data.description,
         createdDateTime: new Date(snippetData.data.created_datetime),
       };
       setSnippet(snippet);
     })();
   }, [snippetId]);
-  const isUserAuthor = true;
+  const isUserAuthor = snippet?.authorId === userId;
   return (
     <SnippetDetail
       snippet={snippet}
