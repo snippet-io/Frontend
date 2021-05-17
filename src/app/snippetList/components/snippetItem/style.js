@@ -36,6 +36,8 @@ export const Title = styled.h2`
   height: 80%;
   margin: 0 0 0 0rem;
   font-size: 1.256rem;
+
+  cursor: pointer;
 `;
 
 export const UserName = styled.p`
