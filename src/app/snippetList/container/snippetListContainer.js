@@ -8,8 +8,7 @@ const SnippetListContainer = () => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await getCodesAPI(10, 0);
-        console.log(res);
+        const res = await getCodesAPI(100, 0);
         setSnippets(res.data);
       } catch (err) {
         console.log(err);
