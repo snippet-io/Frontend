@@ -8,6 +8,7 @@ const SnippetItem = ({
   author,
   language,
   starCount,
+  goDetail,
 }) => {
   return (
     <>
@@ -17,7 +18,7 @@ const SnippetItem = ({
             <S.ProfileImg />
             <S.HeaderContentWarpper>
               <S.UserName>{author}</S.UserName>
-              <S.Title>
+              <S.Title onClick={goDetail}>
                 {title}
                 <S.Language>{language}</S.Language>
               </S.Title>
