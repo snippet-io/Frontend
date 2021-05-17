@@ -2,8 +2,8 @@ import * as S from "./style";
 import React from "react";
 
 const SortBar = ({ languages }) => {
-  const languageItems = Object.keys(languages).map((lang) => {
-    return <S.SortBarText key={lang}>{lang}</S.SortBarText>;
+  const languageItems = Object.keys(languages).map((language) => {
+    return <S.SortBarText>{language}</S.SortBarText>;
   });
 
   return (
