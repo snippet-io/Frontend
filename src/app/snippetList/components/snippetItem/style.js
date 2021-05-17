@@ -5,8 +5,16 @@ export const SnippetItemWarpper = styled.article`
   flex-direction: row;
 
   padding: 1rem;
-  border-radius: 0.15rem;
-  border: 1px solid #000000;
+  border-radius: 0.35rem;
+  /* border: 1px solid #000000; */
+  margin: 0 0 1.2rem 0;
+
+  box-shadow: 2px 2px 2px 2px #a4a4a4;
+  transition: margin 0.3s;
+
+  &:hover {
+    margin: 1.2rem 0 2.4rem 0;
+  }
 `;
 export const FrontWarpper = styled.div``;
 
@@ -35,8 +43,8 @@ export const UserName = styled.p`
 `;
 
 export const ProfileImg = styled.div`
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.2rem;
+  height: 2.2rem;
   border: 1px solid #000000;
   border-radius: 100rem;
 `;
@@ -73,12 +81,19 @@ export const Datetime = styled.p`
   margin-top: auto;
 `;
 
-export const StarCount = styled.p``;
+export const StarWapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  margin-left: auto;
+  align-items: center;
+`;
+
+export const StarCount = styled.p`
+  margin: 0;
+`;
 
 export const Star = styled.img`
-  display: flex;
-  align-self: flex-end;
-
   width: 1.2rem;
   height: 1.2rem;
   border: 1px solid black;
