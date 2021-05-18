@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import HeaderContainer from "app/header/container/headerContainer";
 import LoginContainer from "app/login/container/loginContaienr";
 import OAuthContainer from "app/login/container/oauthContainer";
@@ -12,22 +12,24 @@ import EditSnippetContainer from "app/snippet/containter/editSnippetContainer";
 const App = () => {
   return (
     <>
-      <Route exact path="/new" component={CreateSnippetContainer} />
-      <Route exact path="/header" component={HeaderContainer} />
-      <Route exact path="/login" component={LoginContainer} />
-      <Route exact path="/github/OAuth" component={OAuthContainer} />
-      <Route exact path="/" component={SnippetListContainer} />
-      <Route path="" component={NotFoundContainer} />
-      <Route
-        exact
-        path="/codes/:snippetId"
-        component={SnippetDetailContainer}
-      />
-      <Route
-        exact
-        path="/codes/:snippetId/edit"
-        component={EditSnippetContainer}
-      />
+      <Switch>
+        <Route exact path="/new" component={CreateSnippetContainer} />
+        <Route exact path="/header" component={HeaderContainer} />
+        <Route exact path="/login" component={LoginContainer} />
+        <Route exact path="/github/OAuth" component={OAuthContainer} />
+        <Route exact path="/" component={SnippetListContainer} />
+        <Route path="" component={NotFoundContainer} />
+        <Route
+          exact
+          path="/codes/:snippetId"
+          component={SnippetDetailContainer}
+        />
+        <Route
+          exact
+          path="/codes/:snippetId/edit"
+          component={EditSnippetContainer}
+        />
+      </Switch>
     </>
   );
 };
