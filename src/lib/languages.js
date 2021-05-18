@@ -1,4 +1,4 @@
-import "prismjs";
+import "prismjs/components/prism-core";
 import "prismjs/components/prism-clike";
 import "prismjs/components/prism-python";
 import "prismjs/components/prism-java";
