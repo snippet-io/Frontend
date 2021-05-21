@@ -9,6 +9,7 @@ const CreateSnippetContainer = ({ history }) => {
     description: "",
     code: "def add(a, b):\n   return a + b",
   });
+
   const onChangeInput = (e) => {
     const { value, name } = e.target;
     setInputs({
@@ -16,6 +17,7 @@ const CreateSnippetContainer = ({ history }) => {
       [name]: value,
     });
   };
+
   const postingSnippet = (data) => {
     postCreateSnippetAPI(data)
       .then((res) => {
@@ -26,6 +28,7 @@ const CreateSnippetContainer = ({ history }) => {
         alert("코드 생성 에러");
       });
   };
+
   return (
     <CreateSnippet
       inputs={inputs}
