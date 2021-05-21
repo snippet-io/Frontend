@@ -26,6 +26,9 @@ export const SortBarText = styled.li`
 
   font-size: 0.9rem;
   cursor: pointer;
+
+  border-bottom: ${(props) => props.isSelected && "5px solid #0000ff"};
+  font-weight: ${(props) => props.isSelected && "bold"};
 `;
 
 export const SortWrapper = styled.div`
