@@ -35,8 +35,20 @@ export const getOAuthUrlAPI = () => {
   );
 };
 
-export const getCodesAPI = (limit, offset) => {
-  return api.get(`/codes?limit=${limit}&offset=${offset}`);
+export const getCodesAPI = ({
+  limit,
+  offset,
+  language,
+  order,
+  searchKeyword,
+}) => {
+  let uri = `/codes?limit=${limit}&offset=${offset}`;
+
+  if (language) uri += `&language=${language}`;
+  if (searchKeyword) uri += `&search=${searchKeyword}`;
+  if (order) uri += `&order=${order}`;
+
+  return api.get(uri);
 };
 
 export const getCodeAPI = (id) => {
