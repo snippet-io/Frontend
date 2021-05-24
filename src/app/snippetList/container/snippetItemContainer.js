@@ -5,7 +5,8 @@ import { calculateCreatedTimestamp } from "utils/createdTime";
 const SnippetItemContainer = ({ snippet, userData }) => {
   const history = useHistory();
 
-  const { id, title, description, language, created_datetime } = snippet;
+  const { id, title, description, language, created_datetime, star_count } =
+    snippet;
   const createdTime = calculateCreatedTimestamp(new Date(created_datetime));
 
   const goDetail = () => {
@@ -21,7 +22,7 @@ const SnippetItemContainer = ({ snippet, userData }) => {
         author={userData?.data?.name}
         language={language}
         profileImageURL={userData?.data?.profile_image_url}
-        starCount={1}
+        starCount={star_count}
         goDetail={goDetail}
       />
     </div>
