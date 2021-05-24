@@ -1,11 +1,13 @@
 import React from "react";
 import * as S from "./style";
+import starImg from "static/star.svg";
 
 const SnippetItem = ({
   title,
   description,
   created_datetime,
   author,
+  profileImageURL,
   language,
   starCount,
   goDetail,
@@ -15,7 +17,7 @@ const SnippetItem = ({
       <S.SnippetItemWarpper>
         <S.FrontWarpper>
           <S.HeaderWarpper>
-            <S.ProfileImg />
+            <S.ProfileImg src={profileImageURL} />
             <S.HeaderContentWarpper>
               <S.UserName>{author}</S.UserName>
               <S.Title onClick={goDetail}>
@@ -29,7 +31,7 @@ const SnippetItem = ({
 
         <S.FooterWarpper>
           <S.StarWapper>
-            <S.Star />
+            <S.Star src={starImg} />
             <S.StarCount>{starCount}</S.StarCount>
           </S.StarWapper>
           <S.Datetime>{created_datetime}</S.Datetime>

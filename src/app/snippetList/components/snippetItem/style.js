@@ -44,10 +44,9 @@ export const UserName = styled.p`
   margin: 0 0 0 0rem;
 `;
 
-export const ProfileImg = styled.div`
+export const ProfileImg = styled.img`
   width: 2.2rem;
   height: 2.2rem;
-  border: 1px solid #000000;
   border-radius: 100rem;
 `;
 
@@ -98,5 +97,5 @@ export const StarCount = styled.p`
 export const Star = styled.img`
   width: 1.2rem;
   height: 1.2rem;
-  border: 1px solid black;
+  cursor: pointer;
 `;
