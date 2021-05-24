@@ -32,7 +32,10 @@ const SnippetListContainer = () => {
 
     (async () => {
       try {
-        const res = await getCodesAPI(100, 0);
+        const res = await getCodesAPI({
+          limit: 100,
+          offset: 0,
+        });
         setSnippets(res.data);
       } catch (err) {
         console.log(err);

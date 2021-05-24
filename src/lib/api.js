@@ -35,10 +35,14 @@ export const getOAuthUrlAPI = () => {
   );
 };
 
-export const getCodesAPI = (searchKeyword, language, order, limit, offset) => {
-  let uri = "";
-
-  uri = `/codes?limit=${limit}&offset=${offset}`;
+export const getCodesAPI = ({
+  limit,
+  offset,
+  language,
+  order,
+  searchKeyword,
+}) => {
+  let uri = `/codes?limit=${limit}&offset=${offset}`;
 
   if (language) uri += `&language=${language}`;
   if (searchKeyword) uri += `&search=${searchKeyword}`;
