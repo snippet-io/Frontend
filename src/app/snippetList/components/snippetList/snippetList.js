@@ -6,34 +6,7 @@ import SortBarContainer from "app/snippetList/container/sortBarContainer";
 import SnippetItemContainer from "app/snippetList/container/snippetItemContainer";
 import { getUserAPI } from "lib/api";
 
-const SnippetList = ({ snippets }) => {
-  const [userData, setUserData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const promiseArr =
-      snippets.length &&
-      snippets.map((snippet) => {
-        const promise = new Promise((resolve, rejected) => {
-          const res = getUserAPI(snippet.author);
-          if (res) {
-            resolve(res);
-          } else {
-            rejected();
-          }
-        });
-        return promise;
-      });
-
-    // console.log(promiseArr);
-    promiseArr &&
-      Promise.all(promiseArr).then((res) => {
-        console.log(res);
-        setUserData(res);
-        setIsLoading(false);
-      });
-  }, [snippets]);
-
+const SnippetList = ({ snippets, isLoading, userData }) => {
   const snippetItems = snippets.map((snippet, mapIndex) => {
     return (
       <SnippetItemContainer
