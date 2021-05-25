@@ -9,7 +9,6 @@ const api = axios.create({
 });
 
 export const postLoginAPI = (code) => {
-  console.log(code);
   return api.post(`/auth/github/accesstoken`, {
     code: code,
   });
@@ -56,6 +55,7 @@ export const getCodeAPI = (id) => {
 };
 
 export const getUserAPI = (id) => {
+  console.log(1);
   return api.get(`/users/${id}`);
 };
 
@@ -66,4 +66,12 @@ export const modifySnippetAPI = (codeId, snippet) => {
     content: snippet.code,
     description: snippet.description,
   });
+};
+
+export const postStarAPI = (id) => {
+  return api.post(`codes/${id}/stars`);
+};
+
+export const getStarredUser = (code_id, user_id) => {
+  return api.get(`/codes/${code_id}/stars/${user_id}`);
 };
