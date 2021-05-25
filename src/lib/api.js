@@ -55,7 +55,6 @@ export const getCodeAPI = (id) => {
 };
 
 export const getUserAPI = (id) => {
-  console.log(1);
   return api.get(`/users/${id}`);
 };
 
