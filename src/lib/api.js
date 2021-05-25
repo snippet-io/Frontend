@@ -9,7 +9,6 @@ const api = axios.create({
 });
 
 export const postLoginAPI = (code) => {
-  console.log(code);
   return api.post(`/auth/github/accesstoken`, {
     code: code,
   });
@@ -35,8 +34,20 @@ export const getOAuthUrlAPI = () => {
   );
 };
 
-export const getCodesAPI = (limit, offset) => {
-  return api.get(`/codes?limit=${limit}&offset=${offset}`);
+export const getCodesAPI = ({
+  limit,
+  offset,
+  language,
+  order,
+  searchKeyword,
+}) => {
+  let uri = `/codes?limit=${limit}&offset=${offset}`;
+
+  if (language) uri += `&language=${language}`;
+  if (searchKeyword) uri += `&search=${searchKeyword}`;
+  if (order) uri += `&order=${order}`;
+
+  return api.get(uri);
 };
 
 export const getCodeAPI = (id) => {
@@ -44,6 +55,7 @@ export const getCodeAPI = (id) => {
 };
 
 export const getUserAPI = (id) => {
+  console.log(1);
   return api.get(`/users/${id}`);
 };
 
@@ -54,4 +66,12 @@ export const modifySnippetAPI = (codeId, snippet) => {
     content: snippet.code,
     description: snippet.description,
   });
+};
+
+export const postStarAPI = (id) => {
+  return api.post(`codes/${id}/stars`);
+};
+
+export const getStarredUser = (code_id, user_id) => {
+  return api.get(`/codes/${code_id}/stars/${user_id}`);
 };
