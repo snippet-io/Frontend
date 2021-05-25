@@ -1,20 +1,24 @@
 import * as S from "./style";
-import React, { useState } from "react";
 
-const SortBar = ({ languages }) => {
-  const [selected, setSelected] = useState("All");
-
-  const onSelect = (language) => {
-    setSelected(language);
-  };
-
+const SortBar = ({
+  languages,
+  selectedLanguage,
+  setSelectedLanguage,
+  setOrder,
+  setLanguage,
+  setIsLoading,
+  setSelectedOrder,
+  selectedOrder,
+}) => {
   const languageItems = Object.keys(languages).map((language) => {
     return (
       <SortBarItem
-        isSelected={selected === language}
+        isSelected={selectedLanguage === language}
         key={language}
         language={language}
-        onSelect={onSelect}
+        setSelectedLanguage={setSelectedLanguage}
+        setLanguage={setLanguage}
+        setIsLoading={setIsLoading}
       />
     );
   });
@@ -24,8 +28,26 @@ const SortBar = ({ languages }) => {
       <S.SortBar>
         {languageItems}
         <S.SortWrapper>
-          <S.SortBarText>DATE</S.SortBarText>
-          <S.SortBarText>STAR</S.SortBarText>
+          <S.SortBarText
+            isSelected={selectedOrder === "date"}
+            onClick={() => {
+              setSelectedOrder("date");
+              setIsLoading(true);
+              setOrder("date");
+            }}
+          >
+            DATE
+          </S.SortBarText>
+          <S.SortBarText
+            isSelected={selectedOrder === "stars"}
+            onClick={() => {
+              setSelectedOrder("stars");
+              setIsLoading(true);
+              setOrder("stars");
+            }}
+          >
+            STAR
+          </S.SortBarText>
         </S.SortWrapper>
       </S.SortBar>
     </>
@@ -38,7 +60,9 @@ const SortBarItem = (props) => {
       isSelected={props.isSelected}
       name={props.language}
       onClick={() => {
-        props.onSelect(props.language);
+        props.setIsLoading(true);
+        props.setSelectedLanguage(props.language);
+        props.setLanguage(props.language);
       }}
     >
       {props.language}

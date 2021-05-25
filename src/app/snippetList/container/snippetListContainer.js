@@ -6,6 +6,24 @@ const SnippetListContainer = () => {
   const [snippets, setSnippets] = useState([]);
   const [userData, setUserData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [language, setLanguage] = useState("All");
+  const [order, setOrder] = useState("date");
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await getCodesAPI({
+          limit: 100,
+          offset: 0,
+          language: language === "All" ? null : language,
+          order: order === "date" ? null : order,
+        });
+        setSnippets(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    })();
+  }, [language, order]);
 
   useEffect(() => {
     const promiseArr =
@@ -13,6 +31,7 @@ const SnippetListContainer = () => {
       snippets.map((snippet) => {
         const promise = new Promise((resolve, rejected) => {
           const res = getUserAPI(snippet.author);
+
           if (res) {
             resolve(res);
           } else {
@@ -22,34 +41,22 @@ const SnippetListContainer = () => {
         return promise;
       });
 
-    // console.log(promiseArr);
     promiseArr &&
       Promise.all(promiseArr).then((res) => {
-        console.log(res);
         setUserData(res);
         setIsLoading(false);
       });
-
-    (async () => {
-      try {
-        const res = await getCodesAPI({
-          limit: 100,
-          offset: 0,
-        });
-        setSnippets(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    })();
   }, [snippets]);
-
-  useEffect(() => {}, []);
 
   return (
     <SnippetList
       snippets={snippets}
+      setSnippets={setSnippets}
       userData={userData}
       isLoading={isLoading}
+      setIsLoading={setIsLoading}
+      setOrder={setOrder}
+      setLanguage={setLanguage}
     ></SnippetList>
   );
 };

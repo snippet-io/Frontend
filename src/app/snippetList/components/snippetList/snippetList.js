@@ -4,9 +4,16 @@ import React, { useEffect, useState } from "react";
 
 import SortBarContainer from "app/snippetList/container/sortBarContainer";
 import SnippetItemContainer from "app/snippetList/container/snippetItemContainer";
-import { getUserAPI } from "lib/api";
 
-const SnippetList = ({ snippets, isLoading, userData }) => {
+const SnippetList = ({
+  snippets,
+  isLoading,
+  userData,
+  setSnippets,
+  setIsLoading,
+  setOrder,
+  setLanguage,
+}) => {
   const snippetItems = snippets.map((snippet, mapIndex) => {
     return (
       <SnippetItemContainer
@@ -23,7 +30,12 @@ const SnippetList = ({ snippets, isLoading, userData }) => {
 
       <S.ContentContainer>
         <S.ContentWarpper>
-          <SortBarContainer />
+          <SortBarContainer
+            setSnippets={setSnippets}
+            setIsLoading={setIsLoading}
+            setOrder={setOrder}
+            setLanguage={setLanguage}
+          />
           <S.MainContainer>{isLoading || snippetItems}</S.MainContainer>
         </S.ContentWarpper>
       </S.ContentContainer>

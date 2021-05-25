@@ -2,13 +2,20 @@ import SortBar from "../components/sortBar/sortBar";
 import languageList from "lib/languages";
 import { useState } from "react";
 
-const SortBarContainer = () => {
+const SortBarContainer = ({ setIsLoading, setOrder, setLanguage }) => {
   const [selectedLanguage, setSelectedLanguage] = useState("All");
+  const [selectedOrder, setSelectedOrder] = useState("date");
+
   return (
     <SortBar
       languages={languageList}
-      selected={selectedLanguage}
-      setSelected={setSelectedLanguage}
+      setLanguage={setLanguage}
+      selectedLanguage={selectedLanguage}
+      setSelectedLanguage={setSelectedLanguage}
+      setIsLoading={setIsLoading}
+      setOrder={setOrder}
+      selectedOrder={selectedOrder}
+      setSelectedOrder={setSelectedOrder}
     ></SortBar>
   );
 };
