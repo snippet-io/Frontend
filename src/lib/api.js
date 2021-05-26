@@ -71,6 +71,16 @@ export const postStarAPI = (id) => {
   return api.post(`codes/${id}/stars`);
 };
 
-export const getStarredUser = (code_id, user_id) => {
-  return api.get(`/codes/${code_id}/stars/${user_id}`);
+export const deleteStarAPI = (id) => {
+  return api.delete(`codes/${id}/stars`);
+};
+
+export const getStarredUser = async (code_id, user_id) => {
+  try {
+    await api.get(`/codes/${code_id}/stars/${user_id}`);
+  } catch (e) {
+    return 0;
+  }
+
+  return code_id;
 };
