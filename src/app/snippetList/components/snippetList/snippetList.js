@@ -1,6 +1,5 @@
 import Header from "app/header/container/headerContainer";
 import * as S from "./style";
-import React, { useEffect, useState } from "react";
 
 import SortBarContainer from "app/snippetList/container/sortBarContainer";
 import SnippetItemContainer from "app/snippetList/container/snippetItemContainer";
@@ -13,6 +12,8 @@ const SnippetList = ({
   setIsLoading,
   setOrder,
   setLanguage,
+  onStar,
+  starred,
 }) => {
   const snippetItems = snippets.map((snippet, mapIndex) => {
     return (
@@ -20,6 +21,8 @@ const SnippetList = ({
         key={snippet.id}
         snippet={snippet}
         userData={userData[mapIndex]}
+        onStar={onStar}
+        starred={starred}
       ></SnippetItemContainer>
     );
   });

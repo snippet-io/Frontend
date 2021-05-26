@@ -39,11 +39,11 @@ const SortBar = ({
             DATE
           </S.SortBarText>
           <S.SortBarText
-            isSelected={selectedOrder === "stars"}
+            isSelected={selectedOrder === "star"}
             onClick={() => {
-              setSelectedOrder("stars");
+              setSelectedOrder("star");
               setIsLoading(true);
-              setOrder("stars");
+              setOrder("star");
             }}
           >
             STAR

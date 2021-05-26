@@ -2,10 +2,14 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: `${process.env.REACT_APP_API_BASE_URL}`,
-  headers: {
+});
+
+api.interceptors.request.use((config) => {
+  config.headers = {
     "Content-Type": "application/json",
     Authorization: localStorage.getItem("accessToken"),
-  },
+  };
+  return config;
 });
 
 export const postLoginAPI = (code) => {
@@ -55,7 +59,6 @@ export const getCodeAPI = (id) => {
 };
 
 export const getUserAPI = (id) => {
-  console.log(1);
   return api.get(`/users/${id}`);
 };
 
@@ -72,6 +75,16 @@ export const postStarAPI = (id) => {
   return api.post(`codes/${id}/stars`);
 };
 
-export const getStarredUser = (code_id, user_id) => {
-  return api.get(`/codes/${code_id}/stars/${user_id}`);
+export const deleteStarAPI = (id) => {
+  return api.delete(`codes/${id}/stars`);
+};
+
+export const getStarredUser = async (code_id, user_id) => {
+  try {
+    await api.get(`/codes/${code_id}/stars/${user_id}`);
+  } catch (e) {
+    return 0;
+  }
+
+  return code_id;
 };

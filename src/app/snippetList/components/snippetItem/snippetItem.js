@@ -13,17 +13,9 @@ const SnippetItem = ({
   starCount,
   goDetail,
   onStar,
-  starred,
   id,
+  isStarred,
 }) => {
-  const isStarred = (id) => {
-    if (starred.includes(id)) {
-      return true;
-    }
-
-    return false;
-  };
-
   return (
     <>
       <S.SnippetItemWarpper>
@@ -44,7 +36,7 @@ const SnippetItem = ({
         <S.FooterWarpper>
           <S.StarWapper>
             <S.Star
-              src={isStarred(id) ? starImg : starredImg}
+              src={isStarred(id) ? starredImg : starImg}
               onClick={() => {
                 console.log(id);
                 onStar(id);
