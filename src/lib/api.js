@@ -2,10 +2,14 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: `${process.env.REACT_APP_API_BASE_URL}`,
-  headers: {
+});
+
+api.interceptors.request.use((config) => {
+  config.headers = {
     "Content-Type": "application/json",
     Authorization: localStorage.getItem("accessToken"),
-  },
+  };
+  return config;
 });
 
 export const postLoginAPI = (code) => {
