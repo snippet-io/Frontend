@@ -1,7 +1,7 @@
 import * as S from "../style";
 import statusImage from "static/404.jpg";
 
-const NotFound = () => {
+const NotFound = ({ goBack }) => {
   return (
     <>
       <S.ContentWrapper>
@@ -9,7 +9,7 @@ const NotFound = () => {
           <S.StatusImage src={statusImage}></S.StatusImage>
         </S.StatusImageWrapper>
         <S.ButtonToGoBackWrapper>
-          <S.ButtonToGoBack>BACK</S.ButtonToGoBack>
+          <S.ButtonToGoBack onClick={goBack}>BACK</S.ButtonToGoBack>
         </S.ButtonToGoBackWrapper>
       </S.ContentWrapper>
     </>
