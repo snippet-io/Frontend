@@ -18,7 +18,7 @@ const App = () => {
         <Route exact path="/login" component={LoginContainer} />
         <Route exact path="/github/OAuth" component={OAuthContainer} />
         <Route exact path="/" component={SnippetListContainer} />
-        <Route path="" component={NotFoundContainer} />
+
         <Route
           exact
           path="/codes/:snippetId"
@@ -29,6 +29,7 @@ const App = () => {
           path="/codes/:snippetId/edit"
           component={EditSnippetContainer}
         />
+        <Route path="*" component={NotFoundContainer} />
       </Switch>
     </>
   );
