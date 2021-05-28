@@ -3,7 +3,7 @@ import { getCodesAPI, getUserAPI, getStarredUser } from "lib/api";
 import { useEffect, useState } from "react";
 import { postStarAPI, deleteStarAPI } from "lib/api";
 
-const SnippetListContainer = () => {
+const SnippetListContainer = ({ searchKeyword }) => {
   const [snippets, setSnippets] = useState([]);
   const [userData, setUserData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -19,13 +19,14 @@ const SnippetListContainer = () => {
           offset: 0,
           language: language === "All" ? null : language,
           order: order === "date" ? null : order,
+          search: searchKeyword ? null : searchKeyword,
         });
         setSnippets(res.data);
       } catch (err) {
         console.log(err);
       }
     })();
-  }, [language, order]);
+  }, [language, order, searchKeyword]);
 
   useEffect(() => {
     const promiseArr =
