@@ -8,6 +8,7 @@ import CreateSnippetContainer from "app/snippet/containter/createSnippetContaine
 import SnippetDetailContainer from "app/snippetDetail/container/snippetDetailContainer";
 import NotFoundContainer from "app/error/notFound/container/notFoundContainer";
 import EditSnippetContainer from "app/snippet/containter/editSnippetContainer";
+import SearchContainer from "app/search/container/searchContainer";
 
 const App = () => {
   return (
@@ -29,6 +30,8 @@ const App = () => {
           path="/codes/:snippetId/edit"
           component={EditSnippetContainer}
         />
+
+        <Route exact path="/search" component={SearchContainer} />
         <Route path="*" component={NotFoundContainer} />
       </Switch>
     </>
