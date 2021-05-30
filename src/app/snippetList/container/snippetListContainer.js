@@ -1,3 +1,4 @@
+import { memo } from "react";
 import SnippetList from "../components/snippetList/snippetList";
 import { getCodesAPI, getUserAPI, getStarredUser } from "lib/api";
 import { useEffect, useState } from "react";
@@ -19,7 +20,7 @@ const SnippetListContainer = ({ searchKeyword }) => {
           offset: 0,
           language: language === "All" ? null : language,
           order: order === "date" ? null : order,
-          search: searchKeyword ? null : searchKeyword,
+          searchKeyword: searchKeyword,
         });
         setSnippets(res.data);
       } catch (err) {
@@ -106,4 +107,4 @@ const SnippetListContainer = ({ searchKeyword }) => {
   );
 };
 
-export default SnippetListContainer;
+export default memo(SnippetListContainer);
