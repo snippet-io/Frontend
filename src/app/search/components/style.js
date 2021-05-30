@@ -27,6 +27,7 @@ export const SearchBarWarpper = styled.div`
   display: flex;
   align-items: center;
 
+  width: 100%;
   border: 0.1rem solid #223232;
   border-radius: 1rem;
   margin: 1rem 0 0 0;
@@ -35,7 +36,7 @@ export const SearchBarWarpper = styled.div`
 
 export const SearchInput = styled.input`
   height: 2rem;
-  width: 28rem;
+  width: 100%;
 
   border: 0;
   border-radius: 100px;
@@ -50,4 +51,21 @@ export const ReaddingGlassIcon = styled.img`
   height: 1.2rem;
 
   cursor: pointer;
+`;
+
+export const PageWarpper = styled.div`
+  display: flex;
+  justify-content: center;
+
+  margin: 3rem 0 3rem 0;
+  padding: 2rem;
+`;
+
+export const ContentWarpper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 50rem;
 `;
