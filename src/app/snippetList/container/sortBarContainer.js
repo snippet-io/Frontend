@@ -1,3 +1,4 @@
+import { memo } from "react";
 import SortBar from "../components/sortBar/sortBar";
 import languageList from "lib/languages";
 import { useState } from "react";
@@ -20,4 +21,4 @@ const SortBarContainer = ({ setIsLoading, setOrder, setLanguage }) => {
   );
 };
 
-export default SortBarContainer;
+export default memo(SortBarContainer);

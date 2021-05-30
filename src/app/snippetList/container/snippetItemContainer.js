@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useHistory } from "react-router-dom";
 import SnippetItem from "../components/snippetItem/snippetItem";
 import { calculateCreatedTimestamp } from "utils/createdTime";
@@ -34,4 +35,4 @@ const SnippetItemContainer = ({ snippet, userData, onStar, starred }) => {
   );
 };
 
-export default SnippetItemContainer;
+export default memo(SnippetItemContainer);
