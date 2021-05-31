@@ -1,10 +1,8 @@
-import Header from "app/header/components/header";
 import * as S from "./style";
 
 const Login = ({ githubOAuthLogin }) => {
   return (
     <S.LoginCotainer>
-      <Header />
       <S.LoginTemplate>
         <S.LoginArticle>
           <S.LoginImg />
