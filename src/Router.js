@@ -8,6 +8,7 @@ import SnippetDetailContainer from "app/snippetDetail/container/snippetDetailCon
 import NotFoundContainer from "app/error/notFound/container/notFoundContainer";
 import EditSnippetContainer from "app/snippet/containter/editSnippetContainer";
 import SearchContainer from "app/search/container/searchContainer";
+import ProfilePage from "app/pages/profile.js";
 
 const App = () => {
   return (
@@ -16,7 +17,7 @@ const App = () => {
         <Route exact path="/new" component={CreateSnippetContainer} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/github/OAuth" component={OAuthContainer} />
-        <Route exact path="/" component={MainPage} />
+        <Route exact path="/profile" component={ProfilePage} />
 
         <Route
           exact
@@ -30,6 +31,8 @@ const App = () => {
         />
 
         <Route exact path="/search" component={SearchContainer} />
+
+        <Route exact path="/" component={MainPage} />
         <Route path="*" component={NotFoundContainer} />
       </Switch>
     </>
