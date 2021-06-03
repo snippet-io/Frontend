@@ -6,6 +6,9 @@ const SortBarItem = (props) => {
       isSelected={props.isSelected}
       name={props.language}
       onClick={() => {
+        if (props.isSelected) {
+          return;
+        }
         props.setIsLoading(true);
         props.setSelectedLanguage(props.language);
         props.setLanguage(props.language);
@@ -56,6 +59,9 @@ const SortBar = ({
           <S.SortBarText
             isSelected={selectedOrder === "date"}
             onClick={() => {
+              if (selectedOrder === "date") {
+                return;
+              }
               setSelectedOrder("date");
               setIsLoading(true);
               setOrder("date");
@@ -64,11 +70,14 @@ const SortBar = ({
             DATE
           </S.SortBarText>
           <S.SortBarText
-            isSelected={selectedOrder === "star"}
+            isSelected={selectedOrder === "stars"}
             onClick={() => {
-              setSelectedOrder("star");
+              if (selectedOrder === "stars") {
+                return;
+              }
+              setSelectedOrder("stars");
               setIsLoading(true);
-              setOrder("star");
+              setOrder("stars");
             }}
           >
             STAR
