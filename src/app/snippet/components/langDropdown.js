@@ -5,6 +5,7 @@ const LangDropDown = ({
   setSelectedLanguage,
   languageList,
   onChangeInput,
+  snippetState,
 }) => {
   const languageOptions = languages.map((language) => {
     return (
@@ -16,6 +17,7 @@ const LangDropDown = ({
 
   return (
     <S.LangDropdownSelect
+      value={snippetState.language}
       name="language"
       onChange={(e) => {
         onChangeInput(e);

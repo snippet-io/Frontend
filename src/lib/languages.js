@@ -25,7 +25,6 @@ class Language {
 }
 
 const languageList = {
-  All: new Language("All", "all"),
   Javascript: new Language("javascript", "js"),
   Typescript: new Language("typescript", "ts"),
   Python: new Language("python", "py"),
@@ -35,6 +34,5 @@ const languageList = {
   C: new Language("c", "c"),
   "C++": new Language("cpp", "cpp"),
   "C#": new Language("csharp", "csharp"),
-  Etc: new Language("Etc", "etc"),
 };
 export default languageList;
