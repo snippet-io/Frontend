@@ -35,6 +35,23 @@ export const getUserCodesAPI = ({
   return api.get(uri);
 };
 
+export const getUserStarCodesAPI = ({
+  id,
+  limit,
+  offset,
+  language,
+  order,
+  searchKeyword,
+}) => {
+  let uri = `/users/${id}/staring/codes?limit=${limit}&offset=${offset}`;
+
+  if (language) uri += `&language=${language}`;
+  if (searchKeyword) uri += `&search=${searchKeyword}`;
+  if (order) uri += `&order=${order}`;
+
+  return api.get(uri);
+};
+
 export const postCreateSnippetAPI = ({
   title,
   language,

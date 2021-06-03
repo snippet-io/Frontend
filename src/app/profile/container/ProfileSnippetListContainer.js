@@ -1,10 +1,10 @@
 import { memo } from "react";
 import SnippetList from "app/snippetList/components/snippetList/snippetList";
-import { getUserCodesAPI, getStarredUser } from "lib/api";
+import { getUserCodesAPI, getStarredUser, getUserStarCodesAPI } from "lib/api";
 import { useEffect, useState } from "react";
 import { postStarAPI, deleteStarAPI } from "lib/api";
 
-const ProfileSnippetListContainer = ({ searchKeyword, user }) => {
+const ProfileSnippetListContainer = ({ searchKeyword, user, selectedList }) => {
   const [userData, setUserData] = useState([]);
   const [snippets, setSnippets] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -15,20 +15,32 @@ const ProfileSnippetListContainer = ({ searchKeyword, user }) => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await getUserCodesAPI({
-          id: localStorage.getItem("id"),
-          limit: 100,
-          offset: 0,
-          language: language === "All" ? null : language,
-          order: order === "date" ? null : order,
-          searchKeyword: searchKeyword,
-        });
-        setSnippets(res.data);
+        if (selectedList === "Mine") {
+          const res = await getUserCodesAPI({
+            id: localStorage.getItem("id"),
+            limit: 100,
+            offset: 0,
+            language: language === "All" ? null : language,
+            order: order === "date" ? null : order,
+            searchKeyword: searchKeyword,
+          });
+          setSnippets(res.data);
+        } else if (selectedList === "Star") {
+          const res = await getUserStarCodesAPI({
+            id: localStorage.getItem("id"),
+            limit: 100,
+            offset: 0,
+            language: language === "All" ? null : language,
+            order: order === "date" ? null : order,
+            searchKeyword: searchKeyword,
+          });
+          setSnippets(res.data);
+        }
       } catch (err) {
         console.log(err);
       }
     })();
-  }, [language, order, searchKeyword, user]);
+  }, [language, order, searchKeyword, user, selectedList]);
 
   useEffect(() => {
     const promiseArr =
