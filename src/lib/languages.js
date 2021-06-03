@@ -4,6 +4,11 @@ import "prismjs/components/prism-python";
 import "prismjs/components/prism-java";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-rust";
+import "prismjs/components/prism-ruby";
+import "prismjs/components/prism-c";
+import "prismjs/components/prism-csharp";
+import "prismjs/components/prism-cpp";
+import "prismjs/components/prism-typescript";
 import "prismjs/themes/prism.css";
 
 class Language {
@@ -28,8 +33,8 @@ const languageList = {
   Java: new Language("java", "java"),
   Ruby: new Language("ruby", "rb"),
   C: new Language("c", "c"),
-  "C++": new Language("c++", "cpp"),
-  "C#": new Language("c#", "py"),
+  "C++": new Language("cpp", "cpp"),
+  "C#": new Language("csharp", "csharp"),
   Etc: new Language("Etc", "etc"),
 };
 export default languageList;
