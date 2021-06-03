@@ -13,7 +13,7 @@ export const HeaderTemplate = styled.div`
 
 export const Logo = styled.img`
   width: 5.75rem;
-  margin-left: 1rem;
+  margin: 0 2rem 0 1rem;
   cursor: pointer;
 `;
 
@@ -26,9 +26,10 @@ export const HeaderLink = styled(Link)`
   text-decoration: none;
   margin-left: auto;
   color: #ffffff;
+  font-size: 0.95rem;
 
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 1.8rem;
+  margin-right: 0rem;
   cursor: pointer;
 `;
 
@@ -38,5 +39,5 @@ export const HeaderProfile = styled.img`
   border-radius: 10rem;
 
   cursor: pointer;
-  margin: 0 1rem 0 0;
+  margin: 0 2rem 0 0;
 `;
