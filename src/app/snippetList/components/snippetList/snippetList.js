@@ -1,6 +1,4 @@
 import { memo } from "react";
-
-import Header from "app/header/container/headerContainer";
 import * as S from "./style";
 
 import SortBarContainer from "app/snippetList/container/sortBarContainer";
