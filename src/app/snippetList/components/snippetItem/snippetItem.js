@@ -1,3 +1,4 @@
+import { memo } from "react";
 import React from "react";
 import * as S from "./style";
 import starImg from "static/star.svg";
@@ -51,4 +52,4 @@ const SnippetItem = ({
   );
 };
 
-export default SnippetItem;
+export default memo(SnippetItem);

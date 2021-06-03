@@ -5,9 +5,9 @@ import { postCreateSnippetAPI } from "lib/api";
 const CreateSnippetContainer = ({ history }) => {
   const [inputs, setInputs] = useState({
     title: "",
-    language: "py",
+    language: "",
     description: "",
-    code: "def add(a, b):\n   return a + b",
+    code: "",
   });
 
   const onChangeInput = (e) => {

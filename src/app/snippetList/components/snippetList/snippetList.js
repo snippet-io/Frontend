@@ -1,4 +1,4 @@
-import Header from "app/header/container/headerContainer";
+import { memo } from "react";
 import * as S from "./style";
 
 import SortBarContainer from "app/snippetList/container/sortBarContainer";
@@ -29,8 +29,6 @@ const SnippetList = ({
 
   return (
     <>
-      <Header />
-
       <S.ContentContainer>
         <S.ContentWarpper>
           <SortBarContainer
@@ -46,4 +44,4 @@ const SnippetList = ({
   );
 };
 
-export default SnippetList;
+export default memo(SnippetList);

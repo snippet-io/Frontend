@@ -3,8 +3,6 @@ import styled from "styled-components";
 export const ContentContainer = styled.div`
   display: flex;
 
-  width: 100vw;
-
   justify-content: center;
 `;
 
@@ -14,7 +12,6 @@ export const ContentWarpper = styled.div`
   align-items: center;
   width: 50rem;
 
-  margin: 3rem 0 3rem 0;
   padding: 2rem;
   /* border: 1px solid black; */
 `;

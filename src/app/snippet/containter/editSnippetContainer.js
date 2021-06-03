@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import EditSnippet from "../components/editSnippet/editSnippet";
 import { modifySnippetAPI, getCodeAPI } from "lib/api";
 import { useParams } from "react-router";
+import languageList from "lib/languages";
 
 const EditSnippetContainer = ({ history }) => {
   const [snippet, setSnippet] = useState({
@@ -17,10 +18,6 @@ const EditSnippetContainer = ({ history }) => {
       [name]: value,
     });
   };
-  const snippetState = {
-    ...snippet,
-    setSnippet,
-  };
   const { snippetId } = useParams();
   const [initialSnippet, setInitialSnippet] = useState();
   useEffect(
@@ -35,6 +32,7 @@ const EditSnippetContainer = ({ history }) => {
         };
         setSnippet(snippet);
         setInitialSnippet(snippet);
+        setSelectedLanguage(languageList[snippet.language].getFullName());
       })(),
     [snippetId]
   );
@@ -54,8 +52,19 @@ const EditSnippetContainer = ({ history }) => {
       });
   };
 
+  const snippetState = {
+    ...snippet,
+    setSnippet,
+  };
+
+  const languages = Object.keys(languageList);
+  const [selectedLanguage, setSelectedLanguage] = useState("c");
+
   return (
     <EditSnippet
+      languages={languages}
+      selectedLanguage={selectedLanguage}
+      setSelectedLanguage={setSelectedLanguage}
       snippetState={snippetState}
       onChangeInput={onChangeInput}
       modifySnippet={modifySnippet}

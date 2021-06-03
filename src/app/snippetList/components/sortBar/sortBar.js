@@ -1,5 +1,24 @@
 import * as S from "./style";
 
+const SortBarItem = (props) => {
+  return (
+    <S.SortBarText
+      isSelected={props.isSelected}
+      name={props.language}
+      onClick={() => {
+        if (props.isSelected) {
+          return;
+        }
+        props.setIsLoading(true);
+        props.setSelectedLanguage(props.language);
+        props.setLanguage(props.language);
+      }}
+    >
+      {props.language}
+    </S.SortBarText>
+  );
+};
+
 const SortBar = ({
   languages,
   selectedLanguage,
@@ -26,11 +45,23 @@ const SortBar = ({
   return (
     <>
       <S.SortBar>
+        <SortBarItem
+          isSelected={selectedLanguage === "All"}
+          language={"All"}
+          setSelectedLanguage={setSelectedLanguage}
+          setLanguage={setLanguage}
+          setIsLoading={setIsLoading}
+        >
+          All
+        </SortBarItem>
         {languageItems}
         <S.SortWrapper>
           <S.SortBarText
             isSelected={selectedOrder === "date"}
             onClick={() => {
+              if (selectedOrder === "date") {
+                return;
+              }
               setSelectedOrder("date");
               setIsLoading(true);
               setOrder("date");
@@ -39,11 +70,14 @@ const SortBar = ({
             DATE
           </S.SortBarText>
           <S.SortBarText
-            isSelected={selectedOrder === "star"}
+            isSelected={selectedOrder === "stars"}
             onClick={() => {
-              setSelectedOrder("star");
+              if (selectedOrder === "stars") {
+                return;
+              }
+              setSelectedOrder("stars");
               setIsLoading(true);
-              setOrder("star");
+              setOrder("stars");
             }}
           >
             STAR
@@ -51,22 +85,6 @@ const SortBar = ({
         </S.SortWrapper>
       </S.SortBar>
     </>
-  );
-};
-
-const SortBarItem = (props) => {
-  return (
-    <S.SortBarText
-      isSelected={props.isSelected}
-      name={props.language}
-      onClick={() => {
-        props.setIsLoading(true);
-        props.setSelectedLanguage(props.language);
-        props.setLanguage(props.language);
-      }}
-    >
-      {props.language}
-    </S.SortBarText>
   );
 };
 

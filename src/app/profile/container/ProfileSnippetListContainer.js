@@ -1,12 +1,12 @@
 import { memo } from "react";
-import SnippetList from "../components/snippetList/snippetList";
-import { getCodesAPI, getUserAPI, getStarredUser } from "lib/api";
+import SnippetList from "app/snippetList/components/snippetList/snippetList";
+import { getUserCodesAPI, getStarredUser, getUserStarCodesAPI } from "lib/api";
 import { useEffect, useState } from "react";
 import { postStarAPI, deleteStarAPI } from "lib/api";
 
-const SnippetListContainer = ({ searchKeyword }) => {
-  const [snippets, setSnippets] = useState([]);
+const ProfileSnippetListContainer = ({ searchKeyword, user, selectedList }) => {
   const [userData, setUserData] = useState([]);
+  const [snippets, setSnippets] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [language, setLanguage] = useState("All");
   const [order, setOrder] = useState("date");
@@ -15,30 +15,32 @@ const SnippetListContainer = ({ searchKeyword }) => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await getCodesAPI({
-          limit: 100,
-          offset: 0,
-          language: language === "All" ? null : language,
-          order: order === "date" ? null : order,
-          searchKeyword: searchKeyword,
-        });
-        setSnippets(res.data);
+        if (selectedList === "Mine") {
+          const res = await getUserCodesAPI({
+            id: localStorage.getItem("id"),
+            limit: 100,
+            offset: 0,
+            language: language === "All" ? null : language,
+            order: order === "date" ? null : order,
+            searchKeyword: searchKeyword,
+          });
+          setSnippets(res.data);
+        } else if (selectedList === "Star") {
+          const res = await getUserStarCodesAPI({
+            id: localStorage.getItem("id"),
+            limit: 100,
+            offset: 0,
+            language: language === "All" ? null : language,
+            order: order === "date" ? null : order,
+            searchKeyword: searchKeyword,
+          });
+          setSnippets(res.data);
+        }
       } catch (err) {
         console.log(err);
       }
     })();
-  }, [language, order, searchKeyword]);
-
-  useEffect(() => {
-    const promiseArr =
-      snippets.length && snippets.map((snippet) => getUserAPI(snippet.author));
-
-    promiseArr &&
-      Promise.all(promiseArr).then((res) => {
-        setUserData(res);
-        setIsLoading(false);
-      });
-  }, [snippets]);
+  }, [language, order, searchKeyword, user, selectedList]);
 
   useEffect(() => {
     const promiseArr =
@@ -52,6 +54,17 @@ const SnippetListContainer = ({ searchKeyword }) => {
         setStarred(snippetIds.filter((id) => id !== 0));
       });
   }, [snippets]);
+
+  useEffect(() => {
+    let users = [];
+    for (let i = 0; i < snippets.length; i++) {
+      users.push({
+        data: user,
+      });
+    }
+    setUserData(users);
+    setIsLoading(false);
+  }, [snippets, user]);
 
   const onStar = (id) => {
     (async () => {
@@ -107,4 +120,4 @@ const SnippetListContainer = ({ searchKeyword }) => {
   );
 };
 
-export default memo(SnippetListContainer);
+export default memo(ProfileSnippetListContainer);
