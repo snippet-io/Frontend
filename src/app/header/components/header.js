@@ -9,9 +9,11 @@ const Header = () => {
       <Link to="/">
         <S.Logo src={logoImg} />
       </Link>
+      <S.HeaderLink to="/new">New</S.HeaderLink>
+      <S.HeaderLink to="/">List</S.HeaderLink>
+      <S.HeaderLink to="/search">Search</S.HeaderLink>
       <S.HeaderUserSection>
-        <S.HeaderLink to="/new">new</S.HeaderLink>
-        <S.HeaderLink to="/login">login</S.HeaderLink>
+        <S.HeaderLink to="/login">Login</S.HeaderLink>
       </S.HeaderUserSection>
     </S.HeaderTemplate>
   );
