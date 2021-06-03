@@ -1,5 +1,21 @@
 import * as S from "./style";
 
+const SortBarItem = (props) => {
+  return (
+    <S.SortBarText
+      isSelected={props.isSelected}
+      name={props.language}
+      onClick={() => {
+        props.setIsLoading(true);
+        props.setSelectedLanguage(props.language);
+        props.setLanguage(props.language);
+      }}
+    >
+      {props.language}
+    </S.SortBarText>
+  );
+};
+
 const SortBar = ({
   languages,
   selectedLanguage,
@@ -26,6 +42,15 @@ const SortBar = ({
   return (
     <>
       <S.SortBar>
+        <SortBarItem
+          isSelected={selectedLanguage === "All"}
+          language={"All"}
+          setSelectedLanguage={setSelectedLanguage}
+          setLanguage={setLanguage}
+          setIsLoading={setIsLoading}
+        >
+          All
+        </SortBarItem>
         {languageItems}
         <S.SortWrapper>
           <S.SortBarText
@@ -51,22 +76,6 @@ const SortBar = ({
         </S.SortWrapper>
       </S.SortBar>
     </>
-  );
-};
-
-const SortBarItem = (props) => {
-  return (
-    <S.SortBarText
-      isSelected={props.isSelected}
-      name={props.language}
-      onClick={() => {
-        props.setIsLoading(true);
-        props.setSelectedLanguage(props.language);
-        props.setLanguage(props.language);
-      }}
-    >
-      {props.language}
-    </S.SortBarText>
   );
 };
 
