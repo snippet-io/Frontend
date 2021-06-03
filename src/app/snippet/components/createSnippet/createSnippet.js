@@ -34,6 +34,7 @@ const CreateSnippet = ({
               languages={languages}
               setSelectedLanguage={setSelectedLanguage}
               languageList={languageList}
+              snippetState={inputs}
             />
           </S.HeadContainer>
 
