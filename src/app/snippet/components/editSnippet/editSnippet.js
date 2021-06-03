@@ -31,6 +31,7 @@ const EditSnippet = ({
               languages={languages}
               languageList={languageList}
               onChangeInput={onChangeInput}
+              snippetState={snippetState}
             />
           </GlobalS.HeadContainer>
           <GlobalS.SnippetCodeSection>
