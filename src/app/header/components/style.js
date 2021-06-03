@@ -5,7 +5,7 @@ export const HeaderTemplate = styled.div`
   display: flex;
   background-color: #010101;
   width: 100%;
-  height: 2rem;
+  height: 2.7rem;
   padding: 0.12rem;
 
   align-items: center;
@@ -30,4 +30,13 @@ export const HeaderLink = styled(Link)`
   margin-left: 1rem;
   margin-right: 1rem;
   cursor: pointer;
+`;
+
+export const HeaderProfile = styled.img`
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 10rem;
+
+  cursor: pointer;
+  margin: 0 1rem 0 0;
 `;
