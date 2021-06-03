@@ -5,7 +5,16 @@ import SnippetTitle from "../snippetTitle";
 import Description from "../description";
 import LangDropDown from "../langDropdown";
 
-const EditSnippet = ({ snippetState, onChangeInput, modifySnippet }) => {
+import languageList from "lib/languages";
+
+const EditSnippet = ({
+  languages,
+  selectedLanguage,
+  setSelectedLanguage,
+  snippetState,
+  onChangeInput,
+  modifySnippet,
+}) => {
   return (
     <>
       <HeaderContainer />
@@ -16,14 +25,20 @@ const EditSnippet = ({ snippetState, onChangeInput, modifySnippet }) => {
               title={snippetState.title}
               onChangeInput={onChangeInput}
             />
-            <LangDropDown language={snippetState.language} />
+            <LangDropDown
+              selectedLanguage={selectedLanguage}
+              setSelectedLanguage={setSelectedLanguage}
+              languages={languages}
+              languageList={languageList}
+              onChangeInput={onChangeInput}
+            />
           </GlobalS.HeadContainer>
           <GlobalS.SnippetCodeSection>
             <CodeEditor
               code={snippetState.code}
               inputs={snippetState}
               setInputs={snippetState.setSnippet}
-              language="python"
+              language={selectedLanguage}
             />
           </GlobalS.SnippetCodeSection>
           <Description
