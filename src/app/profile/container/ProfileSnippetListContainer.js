@@ -16,7 +16,7 @@ const ProfileSnippetListContainer = ({ searchKeyword, user }) => {
     (async () => {
       try {
         const res = await getUserCodesAPI({
-          id: user.id,
+          id: localStorage.getItem("id"),
           limit: 100,
           offset: 0,
           language: language === "All" ? null : language,
