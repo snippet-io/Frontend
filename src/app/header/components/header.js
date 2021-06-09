@@ -13,7 +13,7 @@ const Header = ({ user }) => {
       <S.HeaderLink to="/">List</S.HeaderLink>
       <S.HeaderLink to="/search">Search</S.HeaderLink>
       <S.HeaderUserSection>
-        {user === undefined ? (
+        {!user ? (
           <S.HeaderLink to="/login">Login</S.HeaderLink>
         ) : (
           <S.HeaderLink to="/profile">
